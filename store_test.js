@@ -39,18 +39,25 @@ let user = {
 	},
 	getRandomDayDOB: function () {
 		var minDayDOBOption = 2, maxDayDOBOption = 32;
-		randomDayDOB = Math.floor(Math.random() * (maxDayDOBOption - minDayDOBOption + 1)) + minDayDOBOption;
+		this.getRandomNum(minDayDOBOption,  maxDayDOBOption);
+		randomDayDOB = random;
     return dayDOB = String(randomDayDOB);
 	},
  	getRandomMonthDOB: function () {
 		var minMonthDOBOption = 2, maxMonthDOBOption = 13;
-		randomMonthDOB = Math.floor(Math.random() * (maxMonthDOBOption - minMonthDOBOption + 1)) + minMonthDOBOption;
+		this.getRandomNum(minMonthDOBOption,  maxMonthDOBOption);
+		randomMonthDOB = random;
     return monthDOB = String(randomMonthDOB);
 	},
  	getRandomYearDOB: function () {
 		var minYearDOBOption = 1900, maxYearDOBOption = 2022;
-		randomYearDOB = Math.floor(Math.random() * (maxYearDOBOption - minYearDOBOption + 1)) + minYearDOBOption;
+		this.getRandomNum(minYearDOBOption,  maxYearDOBOption);
+		randomYearDOB = random;
     return yearDOB = String(randomYearDOB);
+	},
+	getRandomNum: function(min, max){
+		random = Math.floor(Math.random() * (max - min + 1)) + min;
+		return random;
 	},
 }
 

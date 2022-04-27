@@ -64,8 +64,7 @@ module.exports = {
     I.fillField(this.mobilePhoneAddrInput, user.mobilePhone);
     I.fillField(this.addressAliasAddrInput, user.alias());
       
-  //   I.waitForInvisible({xpath: `//option[text()=`${user.state}`]`});
-  //   I.click({xpath: `//option[text()=`${user.state}`]`});
+
   },
 
   waitForPageLoad(){

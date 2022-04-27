@@ -76,5 +76,5 @@ Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage
 	createAccountPage.clickSubmitAccountBtn();
 	createAccountPage.checkPageIsVisible();
 
-	pause();
+	
 });

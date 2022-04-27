@@ -39,26 +39,30 @@ let user = {
 	},
 	getRandomDayDOB: function () {
 		var minDayDOBOption = 2, maxDayDOBOption = 32;
-		this.getRandomNum(minDayDOBOption,  maxDayDOBOption);
+		randomizer.getRandomNum(minDayDOBOption,  maxDayDOBOption);
 		randomDayDOB = random;
     return dayDOB = String(randomDayDOB);
 	},
  	getRandomMonthDOB: function () {
 		var minMonthDOBOption = 2, maxMonthDOBOption = 13;
-		this.getRandomNum(minMonthDOBOption,  maxMonthDOBOption);
+		randomizer.getRandomNum(minMonthDOBOption,  maxMonthDOBOption);
 		randomMonthDOB = random;
     return monthDOB = String(randomMonthDOB);
 	},
  	getRandomYearDOB: function () {
 		var minYearDOBOption = 1900, maxYearDOBOption = 2022;
-		this.getRandomNum(minYearDOBOption,  maxYearDOBOption);
+		randomizer.getRandomNum(minYearDOBOption,  maxYearDOBOption);
 		randomYearDOB = random;
     return yearDOB = String(randomYearDOB);
 	},
-	getRandomNum: function(min, max){
-		random = Math.floor(Math.random() * (max - min + 1)) + min;
-		return random;
-	},
+	
+}
+
+let randomizer = {
+getRandomNum: function(min, max){
+	random = Math.floor(Math.random() * (max - min + 1)) + min;
+	return random;
+}
 }
 
 Feature('Store');
@@ -72,5 +76,5 @@ Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage
 	createAccountPage.clickSubmitAccountBtn();
 	createAccountPage.checkPageIsVisible();
 
-	
+	pause();
 });

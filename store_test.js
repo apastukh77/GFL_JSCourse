@@ -1,8 +1,8 @@
 const createAccount = require("./pages/createAccount");
 let user = {
 	
-	firstName: 'Lorenzo',
-	lastName: 'Kaye', 
+	firstName: 'Tomas',
+	lastName: 'O\'Sullivan', 
 	state: 'Alabama',
 	city: 'Birmingham',
 	zipCode: '35242',
@@ -13,7 +13,7 @@ let user = {
 	homePhone: '+1727282892',
 	mobilePhone: '+1727287097',
 	alias: function(){
-		var aliasArr = ['Lorenzo','Kaye','2nd St. 34','Birmingham','Alabama','USA','35242'];
+		var aliasArr = ['2nd St.34','Birmingham','AL','US','35242'];
 		var aliasStr = aliasArr.toString().replace(/[\s.,%]/g, ' ');
 		return aliasStr;
 	},
@@ -28,6 +28,30 @@ let user = {
 		endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, '');
 	return endPasswd;
 	},
+	gender: function (){
+	var arr = (Math.random() * 100);
+		var num = Math.trunc(arr); 
+		if (num % 2 == 0) {
+		var mr_mrs = 1;
+		} else mr_mrs = 2;
+
+	return mr_mrs;
+	},
+	getRandomDayDOB: function () {
+		var minDayDOBOption = 2, maxDayDOBOption = 32;
+		randomDayDOB = Math.floor(Math.random() * (maxDayDOBOption - minDayDOBOption + 1)) + minDayDOBOption;
+    return dayDOB = String(randomDayDOB);
+	},
+ 	getRandomMonthDOB: function () {
+		var minMonthDOBOption = 2, maxMonthDOBOption = 13;
+		randomMonthDOB = Math.floor(Math.random() * (maxMonthDOBOption - minMonthDOBOption + 1)) + minMonthDOBOption;
+    return monthDOB = String(randomMonthDOB);
+	},
+ 	getRandomYearDOB: function () {
+		var minYearDOBOption = 1900, maxYearDOBOption = 2022;
+		randomYearDOB = Math.floor(Math.random() * (maxYearDOBOption - minYearDOBOption + 1)) + minYearDOBOption;
+    return yearDOB = String(randomYearDOB);
+	},
 }
 
 Feature('Store');
@@ -35,15 +59,11 @@ Feature('Store');
 Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage}) => {
 	homePage.openStore();
 	homePage.clickSignIn();
-	authenticationPage.generateEmail();
-	authenticationPage.fillCreateAccountEmailInput(generateEmail);
+	authenticationPage.fillCreateAccountEmailInput();
 	authenticationPage.clickCreateAccountBtn();
 	createAccountPage.fillNewUserForm(user);
-	createAccountPage.randomDayDOB(2,32);
-	createAccountPage.randomMonthDOB(2,13);
-	createAccountPage.randomYearDOB(1900,2022);
-	createAccountPage.fillDOB(dayDOB, monthDOB, yearDOB);
-	createAccountPage.randomGender();
+	createAccountPage.clickSubmitAccountBtn();
+	createAccountPage.checkPageIsVisible();
 
-	pause();
+	
 });

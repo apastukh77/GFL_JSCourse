@@ -14,9 +14,10 @@ module.exports = {
   generateEmail(){
 		return generateEmail=Date.now()+'@test.org.ca'
 	},
-  fillCreateAccountEmailInput(generateEmail){
+  fillCreateAccountEmailInput(){
     this.waitForPageLoad();
-		I.fillField(this.createAccountEmailInput, generateEmail);
+    this.generateEmail();
+   	I.fillField(this.createAccountEmailInput, generateEmail);
 	},
   clickCreateAccountBtn(){
     I.click(this.createAccountBtn);

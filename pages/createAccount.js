@@ -23,7 +23,7 @@ module.exports = {
   submitAccountBtn: {css: '#submitAccount'},
 
 
-  openAuthentication(){
+  openCreateAccountLink(){
     I.amOnPage(this.createAccountLink);
   },
   waitForPageLoad(){
@@ -43,12 +43,13 @@ module.exports = {
     };
     I.fillField(this.firstNamePersonalInfoInput, user.firstName);
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
-    I.fillField(this.passwdPersonalInfoInput, user.password());
+    // I.fillField(this.passwdPersonalInfoInput, user.endPasswd);
+    I.fillField(this.passwdPersonalInfoInput, this.password());
     I.click(this.daysDOBPersonalInfoSelect);
     I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-   I.selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
+    I.selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
     I.selectOption(this.yearsDOBPersonalInfoSelect, user.getRandomYearDOB());
@@ -67,11 +68,33 @@ module.exports = {
   
   },
 
+  
   waitForPageLoad(){
     I.waitForVisible(this.firstNamePersonalInfoInput);
   },
 
-  
+  password(){
+    var generatedPasswd = [], random = 0, endPasswd = '';
+      var passwdArray = ['0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ];
+      var passwdMaxLength = '12';
+      for ( var i = 0;  i <= Number(passwdMaxLength)-1; i++) {
+      random = Math.floor(Math.random() * passwdArray.length);
+      generatedPasswd[i] = passwdArray[random];
+    };
+      endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, '');
+      return endPasswd;
+      
+    },
+
+    createUniquePasswd(){
+          uniquePasswd = this.password();
+      return uniquePasswd;
+    },
+
+  fillPasswordField(uniquePasswd){
+    I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
+  },
+
   clickSubmitAccountBtn(){
     I.click(this.submitAccountBtn);
   },  

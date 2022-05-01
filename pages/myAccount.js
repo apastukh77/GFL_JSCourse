@@ -13,8 +13,7 @@ module.exports = {
   },
   
   clickLogoutBtn(){
-   // this.waitForPageLoad();
-    I.click(this.logoutBtn);
+     I.click(this.logoutBtn);
   }	
 
 }

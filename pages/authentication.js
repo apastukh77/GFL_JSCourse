@@ -19,14 +19,10 @@ module.exports = {
     return generateEmail=Date.now()+'@test.org.ca';
 	},
 
-  // saveUniqueUserEmail(generateEmail){
-  //     return uniqueEmail = generateEmail;
-  // },
 
   fillCreateAccountEmailInput(generateEmail){
     this.waitForPageLoad();
-    //this.generateEmail();
-   	I.fillField(this.createAccountEmailInput, generateEmail);
+    I.fillField(this.createAccountEmailInput, generateEmail);
       
 	},
   clickCreateAccountBtn(){
@@ -43,10 +39,12 @@ module.exports = {
     I.fillField(this.alreadyRegisteredEmailInput, generateEmail);
   },
   
-  fillAlreadyRegisteredPasswdInput(user){
-  console.log(user);
-    I.fillField(this.alreadyRegisteredPasswdInput, user.password());
+  fillAlreadyRegisteredPasswdInput(uniquePasswd){
+   //console.log(JSON.stringify(user, ''));
+    I.fillField(this.alreadyRegisteredPasswdInput, uniquePasswd);
+    
   },
+
   clickSubmitLoginBtn(){
     I.click(this.submitLoginBtn);
   }

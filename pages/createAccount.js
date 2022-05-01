@@ -31,6 +31,7 @@ module.exports = {
   },
 
   fillNewUserForm(user){
+   
     this.waitForPageLoad();
     switch (user.gender()){
       case (1):   
@@ -39,7 +40,7 @@ module.exports = {
       case (2):   
       I.click(this.mrsPersonalInfoInput);
       break;
-      };
+    };
     I.fillField(this.firstNamePersonalInfoInput, user.firstName);
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
     I.fillField(this.passwdPersonalInfoInput, user.password());
@@ -47,7 +48,7 @@ module.exports = {
     I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-    I.selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
+   I.selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
     I.selectOption(this.yearsDOBPersonalInfoSelect, user.getRandomYearDOB());
@@ -63,15 +64,14 @@ module.exports = {
     I.fillField(this.homePhoneAddrInput, user.homePhone);
     I.fillField(this.mobilePhoneAddrInput, user.mobilePhone);
     I.fillField(this.addressAliasAddrInput, user.alias());
-      
-
+  
   },
 
   waitForPageLoad(){
     I.waitForVisible(this.firstNamePersonalInfoInput);
   },
 
-
+  
   clickSubmitAccountBtn(){
     I.click(this.submitAccountBtn);
   },  

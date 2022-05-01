@@ -1,7 +1,9 @@
 const createAccount = require("./pages/createAccount");
+const { logoutBtn } = require("./pages/myAccount");
+
 let user = {
 	
-	firstName: 'Tomas',
+	firstName: 'Hajeb',
 	lastName: 'O\'Sullivan', 
 	state: 'Alabama',
 	city: 'Birmingham',
@@ -21,15 +23,17 @@ let user = {
 	var generatedPasswd = [], random = 0, endPasswd = '';
     var passwdArray = ['0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ];
     var passwdMaxLength = '12';
-    for ( var i = 0;  i <= Number(passwdMaxLength); i++) {
+    for ( var i = 0;  i <= Number(passwdMaxLength)-1; i++) {
 		random = Math.floor(Math.random() * passwdArray.length);
-		generatedPasswd[i] = (passwdArray[random]);
+		generatedPasswd[i] = passwdArray[random];
 	};
 		endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, '');
+		
 	return endPasswd;
+	
 	},
 	gender: function (){
-	var arr = (Math.random() * 100);
+		var arr = (Math.random() * 100);
 		var num = Math.trunc(arr); 
 		if (num % 2 == 0) {
 		var mr_mrs = 1;
@@ -55,26 +59,47 @@ let user = {
 		randomYearDOB = random;
     return yearDOB = String(randomYearDOB);
 	},
-	
+
 }
 
 let randomizer = {
 getRandomNum: function(min, max){
 	random = Math.floor(Math.random() * (max - min + 1)) + min;
 	return random;
-}
+	}
 }
 
 Feature('Store');
- 
-Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage}) => {
+
+Before(({I, homePage})=>{
 	homePage.openStore();
+	I.say('Before test message');
+	}
+);
+
+Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage}) => {
 	homePage.clickSignIn();
-	authenticationPage.fillCreateAccountEmailInput();
+	authenticationPage.generateEmail();
+	authenticationPage.fillCreateAccountEmailInput(generateEmail);
 	authenticationPage.clickCreateAccountBtn();
 	createAccountPage.fillNewUserForm(user);
 	createAccountPage.clickSubmitAccountBtn();
 	createAccountPage.checkPageIsVisible();
-
 	
 });
+
+Scenario('test something_2', ({ I, homePage, authenticationPage, createAccountPage, myAccountPage}) => {
+	
+	homePage.clickSignIn();
+	authenticationPage.fillAlreadyRegisteredEmailInput(generateEmail);
+	authenticationPage.fillAlreadyRegisteredPasswdInput(user);
+	authenticationPage.clickSubmitLoginBtn();
+	pause();
+	
+});
+
+After(({I, authenticationPage, myAccountPage})=>{
+	myAccountPage.clickLogoutBtn();
+	console.log('After has done!');
+	}
+);

@@ -8,6 +8,7 @@ module.exports = {
   openStep1Link(){
     I.amOnPage(this.step1Link);
   },
+
   waitForPageLoad(){
     I.waitForVisible(this.proceedToCheckoutBtn);
   },
@@ -15,5 +16,10 @@ module.exports = {
   clickProceedToCheckoutBtn(){
     this.waitForPageLoad();
     I.click(this.proceedToCheckoutBtn);
+  },
+
+  checkPageIsVisible(){
+    I.retry().waitForVisible({ xpath: `//*[text()='Shipping']` });
   }
+  
 }

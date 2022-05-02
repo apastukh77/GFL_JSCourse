@@ -1,19 +1,27 @@
 const { I } = inject();
 
 module.exports = {
- 
-  orderSummaryLink: 'http://automationpractice.com/index.php?fc=module&module=bankwire&controller=payment',
-  confirmMyOrderBtn: {xpath: '//*[@id="cart_navigation"]/button'},
+  orderSummaryLink:
+    "http://automationpractice.com/index.php?fc=module&module=bankwire&controller=payment",
+  confirmMyOrderBtn: { xpath: '//*[@id="cart_navigation"]/button' },
 
-  openOrderSummaryLink(){
+  openOrderSummaryLink() {
     I.amOnPage(this.shoppingCartSummaryLink);
   },
-  waitForPageLoad(){
+
+  waitForPageLoad() {
     I.waitForVisible(this.confirmMyOrderBtn);
   },
 
-  clickConfirmMyOrderBtn(){
+  clickConfirmMyOrderBtn() {
     this.waitForPageLoad();
     I.click(this.confirmMyOrderBtn);
-}
-}
+  },
+
+  checkPageIsVisible(){
+    I.retry().waitForVisible({ xpath: `//*[text()='Order confirmation']` });
+  }
+
+
+
+};

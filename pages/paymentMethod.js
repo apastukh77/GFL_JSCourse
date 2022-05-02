@@ -1,21 +1,25 @@
 const { I } = inject();
 
 module.exports = {
+  paymentMethodLink:
+    "http://automationpractice.com/index.php?controller=order&multi-shipping=",
+  payByBankWireBtn: { xpath: '//*[@id="HOOK_PAYMENT"]/div[1]/div/p/a' },
 
-  paymentMethodLink: 'http://automationpractice.com/index.php?controller=order&multi-shipping=',
-  payByBankWireBtn: {xpath: '//*[@id="HOOK_PAYMENT"]/div[1]/div/p/a'},
-
-
-  openPaymentMethodLink(){
+  openPaymentMethodLink() {
     I.amOnPage(this.paymentMethodLink);
   },
-  waitForPageLoad(){
+
+  waitForPageLoad() {
     I.waitForVisible(this.payByBankWireBtn);
   },
 
-  clickPayByBankWireBtn(){
+  clickPayByBankWireBtn() {
     this.waitForPageLoad();
     I.click(this.payByBankWireBtn);
+  },
+
+  checkPageIsVisible(){
+    I.retry().waitForVisible({ xpath: `//*[text()='Order summary']` });
   }
 
-}
+};

@@ -32,7 +32,6 @@ exports.config = {
     myAccountPage: './pages/myAccount.js',
     openCatalogPage: './pages/openCatalog.js',
     productPage: './pages/product.js',
-    orderPage: './pages/order.js',
     shoppingCartSummaryPage: './pages/shoppingCartSummary.js',
     step1Page: './pages/step1.js',
     shippingPage: './pages/shipping.js',

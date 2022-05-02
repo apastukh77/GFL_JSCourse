@@ -1,26 +1,29 @@
 const { I } = inject();
 
 module.exports = {
+  shippingLink: "http://automationpractice.com/index.php?controller=order",
+  proceedToCheckoutBtn: { xpath: '//*[@id="form"]/p/button' },
+  agreeCheckBox: { css: "#cgv" },
 
-  shippingLink: 'http://automationpractice.com/index.php?controller=order',
-  proceedToCheckoutBtn: {xpath: '//*[@id="form"]/p/button'},
-  agreeCheckBox: {css: '#cgv'},
-  
-
-  openShippingLink(){
+  openShippingLink() {
     I.amOnPage(this.shippingLink);
   },
-  waitForPageLoad(){
+
+  waitForPageLoad() {
     I.waitForVisible(this.proceedToCheckoutBtn);
   },
 
-  checkAgreeCheckBox(){
+  checkAgreeCheckBox() {
     this.waitForPageLoad();
     I.click(this.agreeCheckBox);
   },
-  
-  clickProceedToCheckoutBtn(){
+
+  clickProceedToCheckoutBtn() {
     I.click(this.proceedToCheckoutBtn);
+  },
+
+  checkPageIsVisible(){
+    I.retry().waitForVisible({ xpath: `//*[text()='Please choose your payment method']` });
   }
 
-}
+};

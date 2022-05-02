@@ -1,53 +1,51 @@
 const { I } = inject();
 
 module.exports = {
-  authenticationLink: 'http://automationpractice.com/index.php?controller=authentication&back=my-account',
-  createAccountEmailInput: {css: '#email_create'},
-  createAccountBtn: {css: '#SubmitCreate'},
-  alreadyRegisteredEmailInput: {css: '#email'},
-  alreadyRegisteredPasswdInput: {css: '#passwd'},
-  submitLoginBtn: {css: '#SubmitLogin'},
-  generateEmail: '',
-  openAuthentication(){
+  authenticationLink:
+    "http://automationpractice.com/index.php?controller=authentication&back=my-account",
+  createAccountEmailInput: { css: "#email_create" },
+  createAccountBtn: { css: "#SubmitCreate" },
+  alreadyRegisteredEmailInput: { css: "#email" },
+  alreadyRegisteredPasswdInput: { css: "#passwd" },
+  submitLoginBtn: { css: "#SubmitLogin" },
+  generateEmail: "",
+
+  openAuthentication() {
     I.amOnPage(this.authenticationLink);
   },
-  waitForPageLoad(){
+
+  waitForPageLoad() {
     I.waitForVisible(this.createAccountEmailInput);
   },
-  
-  generateEmail(){
-    return generateEmail=Date.now()+'@test.org.ca';
-	},
 
+  generateEmail() {
+    return (generateEmail = Date.now() + "@test.org.ca");
+  },
 
-  fillCreateAccountEmailInput(generateEmail){
+  fillCreateAccountEmailInput(generateEmail) {
     this.waitForPageLoad();
     I.fillField(this.createAccountEmailInput, generateEmail);
-      
-	},
-  clickCreateAccountBtn(){
+  },
+  clickCreateAccountBtn() {
     I.click(this.createAccountBtn);
   },
-  
-  waitForPageLoad2(){
+
+  waitForPageLoad2() {
     I.waitForVisible(this.alreadyRegisteredEmailInput);
     I.waitForVisible(this.alreadyRegisteredPasswdInput);
   },
 
-  fillAlreadyRegisteredEmailInput(generateEmail){
-    this.waitForPageLoad2()
+  fillAlreadyRegisteredEmailInput(generateEmail) {
+    this.waitForPageLoad2();
     I.fillField(this.alreadyRegisteredEmailInput, generateEmail);
   },
-  
-  fillAlreadyRegisteredPasswdInput(uniquePasswd){
-   
+
+  fillAlreadyRegisteredPasswdInput(uniquePasswd) {
     I.fillField(this.alreadyRegisteredPasswdInput, uniquePasswd);
-    
   },
 
-  clickSubmitLoginBtn(){
+  clickSubmitLoginBtn() {
     I.click(this.submitLoginBtn);
   }
 
-  // insert your locators and methods here
-}
+};

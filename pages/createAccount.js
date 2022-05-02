@@ -43,13 +43,13 @@ module.exports = {
     };
     I.fillField(this.firstNamePersonalInfoInput, user.firstName);
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
-    // I.fillField(this.passwdPersonalInfoInput, user.endPasswd);
     I.fillField(this.passwdPersonalInfoInput, this.password());
     I.click(this.daysDOBPersonalInfoSelect);
     I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-    I.selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
+    I.waitForElement(this.monthsDOBPersonalInfoSelect, 2);
+    I.retry().selectOption(this.monthsDOBPersonalInfoSelect, user.getRandomMonthDOB());
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
     I.selectOption(this.yearsDOBPersonalInfoSelect, user.getRandomYearDOB());

@@ -12,7 +12,7 @@ module.exports = {
     I.waitForVisible(this.proceedToCheckoutBtn);
   },
 
-  clickProceedToCheckout(){
+  clickProceedToCheckoutBtn(){
     this.waitForPageLoad();
     I.click(this.proceedToCheckoutBtn);
   }

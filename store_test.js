@@ -17,25 +17,13 @@ let user = {
 	additionalInfo: 'testtest1',
 	homePhone: '+1727282892',
 	mobilePhone: '+1727287097',
-	// endPasswd: password(),
+	
 	alias: function(){
 		var aliasArr = ['2nd St.34','Birmingham','AL','US','35242'];
 		var aliasStr = aliasArr.toString().replace(/[\s.,%]/g, ' ');
 		return aliasStr;
 	},
-    // password: function (){
-	// var generatedPasswd = [], random = 0, endPasswd = '';
-    // var passwdArray = ['0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ];
-    // var passwdMaxLength = '12';
-    // for ( var i = 0;  i <= Number(passwdMaxLength)-1; i++) {
-	// 	random = Math.floor(Math.random() * passwdArray.length);
-	// 	generatedPasswd[i] = passwdArray[random];
-	// };
-	// 	endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, '');
-	// 	return endPasswd;
-		
-	// },
-	
+    	
 	gender: function (){
 		var arr = (Math.random() * 100);
 		var num = Math.trunc(arr); 
@@ -94,7 +82,7 @@ Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage
 		
 });
 
-Scenario('test something_2', ({ I, homePage, authenticationPage, createAccountPage, myAccountPage, productPage, orderPage, step1Page, shippingPage, paymentMethodPage, orderSummaryPage  }) => {
+Scenario('test something_2', ({ I, homePage, authenticationPage, myAccountPage, productPage, orderPage, step1Page, shippingPage, paymentMethodPage, orderSummaryPage  }) => {
 	
 	homePage.clickSignIn();
 	authenticationPage.fillAlreadyRegisteredEmailInput(generateEmail);

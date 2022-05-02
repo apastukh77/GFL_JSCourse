@@ -40,7 +40,7 @@ module.exports = {
   },
   
   fillAlreadyRegisteredPasswdInput(uniquePasswd){
-   //console.log(JSON.stringify(user, ''));
+   
     I.fillField(this.alreadyRegisteredPasswdInput, uniquePasswd);
     
   },

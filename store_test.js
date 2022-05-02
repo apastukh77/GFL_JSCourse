@@ -1,5 +1,8 @@
 const createAccount = require("./pages/createAccount");
 const { logoutBtn } = require("./pages/myAccount");
+const openCatalog = require("./pages/openCatalog");
+const { payByBankWireBtn } = require("./pages/paymentMethod");
+const product = require("./pages/product");
 
 let user = {
 	
@@ -91,12 +94,23 @@ Scenario('test something', ({ I, homePage, authenticationPage, createAccountPage
 		
 });
 
-Scenario('test something_2', ({ I, homePage, authenticationPage, createAccountPage, myAccountPage}) => {
+Scenario('test something_2', ({ I, homePage, authenticationPage, createAccountPage, myAccountPage, productPage, orderPage, step1Page, shippingPage, paymentMethodPage, orderSummaryPage  }) => {
 	
 	homePage.clickSignIn();
 	authenticationPage.fillAlreadyRegisteredEmailInput(generateEmail);
 	authenticationPage.fillAlreadyRegisteredPasswdInput(uniquePasswd);
 	authenticationPage.clickSubmitLoginBtn();
+	myAccountPage.clickT_ShirtsBtn();
+	openCatalog.clickQuickViewImg();
+	productPage.clickAddToCartBtn();
+	productPage.clickProceedToCheckoutBtn();
+	orderPage.clickProceedToCheckoutBtn();
+	step1Page.clickProceedToCheckoutBtn();
+	shippingPage.checkAgreeCheckBox();
+	shippingPage.clickProceedToCheckoutBtn();
+	paymentMethodPage.clickPayByBankWireBtn();
+	orderSummaryPage.clickConfirmMyOrderBtn();
+
 	pause();
 	
 });

@@ -102,5 +102,5 @@ module.exports = {
   checkPageIsVisible(){
     I.waitForVisible({xpath: `//*[text()='My account']` });
   }
-
+  
 }

@@ -25,6 +25,10 @@ module.exports = {
 
   checkPageIsVisible(){
     I.waitForVisible({ xpath: `//*[text()='Catalog']` });
+  },
+
+  goOnMyAccountPage(){
+    I.amOnPage(this.myAccountLink);
   }
 
 };

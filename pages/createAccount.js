@@ -47,7 +47,7 @@ module.exports = {
     I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-    I.retry().selectOption(
+    I.retry(2).selectOption(
       this.monthsDOBPersonalInfoSelect,
       user.getRandomMonthDOB()
     );
@@ -175,5 +175,5 @@ module.exports = {
   checkPageIsVisible() {
     I.waitForVisible({ xpath: `//*[text()='My account']` });
   }
-  
+
 };

@@ -124,6 +124,7 @@ Scenario(
 );
 
 After(({ I, authenticationPage, myAccountPage }) => {
+  myAccountPage.goOnMyAccountPage();
   myAccountPage.clickLogoutBtn();
   console.log("After has done!");
 });

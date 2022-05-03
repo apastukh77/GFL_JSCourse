@@ -47,7 +47,7 @@ module.exports = {
     I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-    I.retry(2).selectOption(
+    I.retry().selectOption(
       this.monthsDOBPersonalInfoSelect,
       user.getRandomMonthDOB()
     );

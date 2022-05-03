@@ -8,6 +8,7 @@ module.exports = {
   proceedToCheckoutBtn: {
     xpath: '//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a',
   },
+  price: {css: '#our_price_display'},
 
   openToProductLink() {
     I.amOnPage(this.toProductLink);
@@ -26,6 +27,11 @@ module.exports = {
     I.click(this.proceedToCheckoutBtn);
   },
 
+  async getProductPrice(){
+    return await I.grabTextFrom(this.price);
+  },
+
+  
   checkPageIsVisible(){
     I.retry(2).waitForVisible({ xpath: `//*[text()='Shopping-cart summary']` });
   }

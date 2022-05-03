@@ -89,8 +89,8 @@ Scenario(
 );
 
 Scenario(
-  "test something_2",
-  ({
+  "test something_2", 
+  async  ({
     I,
     homePage,
     authenticationPage,
@@ -101,7 +101,7 @@ Scenario(
     shippingPage,
     paymentMethodPage,
     orderSummaryPage,
-  }) => {
+  }) =>  {
     homePage.clickSignIn();
     authenticationPage.fillAlreadyRegisteredEmailInput(generateEmail);
     authenticationPage.fillAlreadyRegisteredPasswdInput(uniquePasswd);
@@ -109,7 +109,15 @@ Scenario(
     myAccountPage.clickT_ShirtsBtn();
 	openCatalog.clickQuickViewImg();
 	productPage.clickAddToCartBtn();
+	productPage.getProductPrice();
+	const priceOnProductPage = await productPage.getProductPrice();
+	console.log(priceOnProductPage);
     productPage.clickProceedToCheckoutBtn();
+	shoppingCartSummaryPage.getPriceOnShoppingCart();
+	//shoppingCartSummaryPage.getPriceOnShoppingCart();
+	const priceOnShoppingCart = await shoppingCartSummaryPage.getPriceOnShoppingCart();
+	console.log(priceOnProductPage);
+	I.assertEqual(priceOnProductPage, priceOnShoppingCart);
 	shoppingCartSummaryPage.clickProceedToCheckoutBtn();
 	shoppingCartSummaryPage.checkPageIsVisible();
     step1Page.clickProceedToCheckoutBtn();

@@ -1,8 +1,6 @@
-
 Feature("Store");
 
 Before(({ I, homePage }) => {
-
   homePage.openStore();
   I.say("Before test message");
 });
@@ -13,14 +11,12 @@ Scenario(
     homePage.clickSignIn();
     helper.createUniqueEmail();
     helper.createUniquePasswd();
-    console.log('email: '+uniqueEmail  + ' '+ 'password: '+uniquePasswd );
+    console.log("email: " + uniqueEmail + " " + "password: " + uniquePasswd);
     authenticationPage.fillCreateAccountEmailInput(uniqueEmail);
     authenticationPage.clickCreateAccountBtn();
-    createAccountPage.fillNewUserForm(user, uniquePasswd );
-    // createAccountPage.fillPasswordField(uniquePasswd);
+    createAccountPage.fillNewUserForm(user, uniquePasswd);
     createAccountPage.clickSubmitAccountBtn();
     createAccountPage.checkPageIsVisible();
-   
   }
 );
 
@@ -37,8 +33,7 @@ Scenario(
     shippingPage,
     paymentMethodPage,
     orderSummaryPage,
-    openCatalogPage
-    
+    openCatalogPage,
   }) => {
     homePage.clickSignIn();
     authenticationPage.fillAlreadyRegisteredEmailInput(uniqueEmail);
@@ -64,8 +59,7 @@ Scenario(
     paymentMethodPage.clickPayByBankWireBtn();
     orderSummaryPage.clickConfirmMyOrderBtn();
     orderSummaryPage.checkPageIsVisible();
-
-    pause();
+    
   }
 );
 

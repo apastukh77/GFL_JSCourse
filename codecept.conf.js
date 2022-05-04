@@ -36,7 +36,11 @@ exports.config = {
     step1Page: './pages/step1.js',
     shippingPage: './pages/shipping.js',
     paymentMethodPage: './pages/paymentMethod.js',
-    orderSummaryPage: './pages/orderSummary.js'
+    orderSummaryPage: './pages/orderSummary.js',
+    user: './userDate/user.js',
+    helper: './helper/helper.js',
+    randomizer: './randomizer/randomizer.js'
+   
   },
   bootstrap: null,
   mocha: {},

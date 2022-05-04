@@ -11,10 +11,12 @@ type step1Page = typeof import('./pages/step1.js');
 type shippingPage = typeof import('./pages/shipping.js');
 type paymentMethodPage = typeof import('./pages/paymentMethod.js');
 type orderSummaryPage = typeof import('./pages/orderSummary.js');
+type user = typeof import('./userDate/user.js');
+type helper = typeof import('./helper/helper.js');
 type ChaiWrapper = import('codeceptjs-chai');
 
 declare namespace CodeceptJS {
-  interface SupportObject { I: I, current: any, homePage: homePage, authenticationPage: authenticationPage, createAccountPage: createAccountPage, myAccountPage: myAccountPage, openCatalogPage: openCatalogPage, productPage: productPage, shoppingCartSummaryPage: shoppingCartSummaryPage, step1Page: step1Page, shippingPage: shippingPage, paymentMethodPage: paymentMethodPage, orderSummaryPage: orderSummaryPage }
+  interface SupportObject { I: I, current: any, homePage: homePage, authenticationPage: authenticationPage, createAccountPage: createAccountPage, myAccountPage: myAccountPage, openCatalogPage: openCatalogPage, productPage: productPage, shoppingCartSummaryPage: shoppingCartSummaryPage, step1Page: step1Page, shippingPage: shippingPage, paymentMethodPage: paymentMethodPage, orderSummaryPage: orderSummaryPage, user: user, helper: helper }
   interface Methods extends Playwright, ChaiWrapper {}
   interface I extends ReturnType<steps_file>, WithTranslation<ChaiWrapper> {}
   namespace Translation {

@@ -15,7 +15,7 @@ module.exports = {
     I.waitForVisible(this.proceedToCheckoutBtn);
   },
 
-  async getPriceOnShoppingCart(){
+  async getPriceOnShoppingCartPage(){
     this.waitForPageLoad();
     return await I.retry().grabTextFrom(this.price);
   },

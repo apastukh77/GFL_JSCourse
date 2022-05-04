@@ -9,5 +9,5 @@ module.exports = {
   clickSignIn() {
     I.click(this.signInButton);
   }
-  // insert your locators and methods here
+  
 };

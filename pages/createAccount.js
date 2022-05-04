@@ -30,7 +30,7 @@ module.exports = {
     I.waitForVisible(this.submitAccountBtn);
   },
 
-  fillNewUserForm(user) {
+  fillNewUserForm(user, uniquePasswd) {
     this.waitForPageLoad();
     switch (user.gender()) {
       case 1:
@@ -42,9 +42,9 @@ module.exports = {
     }
     I.fillField(this.firstNamePersonalInfoInput, user.firstName);
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
-    I.fillField(this.passwdPersonalInfoInput, this.password());
+    I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
     I.click(this.daysDOBPersonalInfoSelect);
-    I.selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
+    I.retry().selectOption(this.daysDOBPersonalInfoSelect, user.getRandomDayDOB());
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
     I.retry().selectOption(
@@ -72,101 +72,9 @@ module.exports = {
     I.waitForVisible(this.firstNamePersonalInfoInput);
   },
 
-  password() {
-    var generatedPasswd = [],
-      random = 0,
-      endPasswd = "";
-    var passwdArray = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "!",
-      "@",
-      "#",
-      "$",
-      "%",
-      "^",
-      "&",
-      "*",
-      "(",
-      ")",
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ];
-    var passwdMaxLength = "12";
-    for (var i = 0; i <= Number(passwdMaxLength) - 1; i++) {
-      random = Math.floor(Math.random() * passwdArray.length);
-      generatedPasswd[i] = passwdArray[random];
-    }
-    endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, "");
-    return endPasswd;
-  },
-
-  createUniquePasswd() {
-    uniquePasswd = this.password();
-    return uniquePasswd;
-  },
-
-  fillPasswordField(uniquePasswd) {
-    I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
-  },
+  // fillPasswordField(uniquePasswd) {
+  //   I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
+  // },
 
   clickSubmitAccountBtn() {
     I.click(this.submitAccountBtn);

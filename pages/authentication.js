@@ -18,14 +18,11 @@ module.exports = {
     I.waitForVisible(this.createAccountEmailInput);
   },
 
-  generateEmail() {
-    return (generateEmail = Date.now() + "@test.org.ca");
+  fillCreateAccountEmailInput(uniqueEmail) {
+    this.waitForPageLoad();
+    I.fillField(this.createAccountEmailInput, uniqueEmail);
   },
 
-  fillCreateAccountEmailInput(generateEmail) {
-    this.waitForPageLoad();
-    I.fillField(this.createAccountEmailInput, generateEmail);
-  },
   clickCreateAccountBtn() {
     I.click(this.createAccountBtn);
   },
@@ -35,9 +32,9 @@ module.exports = {
     I.waitForVisible(this.alreadyRegisteredPasswdInput);
   },
 
-  fillAlreadyRegisteredEmailInput(generateEmail) {
+  fillAlreadyRegisteredEmailInput(uniqueEmail) {
     this.waitForPageLoad2();
-    I.fillField(this.alreadyRegisteredEmailInput, generateEmail);
+    I.fillField(this.alreadyRegisteredEmailInput, uniqueEmail);
   },
 
   fillAlreadyRegisteredPasswdInput(uniquePasswd) {

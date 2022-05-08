@@ -1,7 +1,7 @@
 const { I } = inject();
 
 module.exports = {
-  firstName: "Jonathan",
+  firstName: "Jon-Paul",
   lastName: "O'Sullivan",
   state: "Alabama",
   city: "Birmingham",

@@ -19,7 +19,8 @@ module.exports = {
   },
 
   checkPageIsVisible(){
-    I.retry().waitForVisible({ xpath: `//*[text()='Shipping']` });
+    //I.retry().waitForVisible({ xpath: `//*[text()='Shipping']` });
+    I.waitForVisible({xpath: `//div['@class=breadcrumb clearfix']/span[text()='Shipping']`});
   }
   
 }

@@ -21,6 +21,7 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.retry().waitForVisible({ xpath: `//*[text()='Data sheet']` });
-  },
+    //I.retry().waitForVisible({ xpath: `//*[text()='Data sheet']` });
+    I.waitForVisible({ xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']`});
+  }
 };

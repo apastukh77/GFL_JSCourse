@@ -23,7 +23,8 @@ module.exports = {
   },
 
   checkPageIsVisible(){
-    I.retry().waitForVisible({ xpath: `//*[text()='Please choose your payment method']` });
+    //I.retry().waitForVisible({ xpath: `//*[text()='Please choose your payment method']` });
+    I.waitForVisible({xpath: `//div['@class=row']/div['#center_column']/h1[text()='Please choose your payment method']`});
   }
 
 };

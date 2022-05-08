@@ -24,6 +24,7 @@ xScenario(
     user,
     helper,
     file_handler,
+    
   }) => {
     homePage.clickSignIn();
     helper.createUniqueEmail();
@@ -77,11 +78,13 @@ xScenario(
     authenticationPage.clickSubmitLoginBtn();
     myAccountPage.clickT_ShirtsBtn();
     openCatalogPage.clickQuickViewImg();
+    openCatalogPage.checkPageIsVisible();
     productPage.clickAddToCartBtn();
     productPage.getProductPrice();
     const priceOnProductPage = await productPage.getProductPrice();
     console.log(priceOnProductPage);
     productPage.clickProceedToCheckoutBtn();
+    productPage.checkPageIsVisible();
     shoppingCartSummaryPage.getPriceOnShoppingCartPage();
     const priceOnShoppingCartPage =
       await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
@@ -90,9 +93,12 @@ xScenario(
     shoppingCartSummaryPage.clickProceedToCheckoutBtn();
     shoppingCartSummaryPage.checkPageIsVisible();
     step1Page.clickProceedToCheckoutBtn();
+    step1Page.checkPageIsVisible();
     shippingPage.checkAgreeCheckBox();
     shippingPage.clickProceedToCheckoutBtn();
+    shippingPage.checkPageIsVisible();
     paymentMethodPage.clickPayByBankWireBtn();
+    paymentMethodPage.checkPageIsVisible();
     orderSummaryPage.clickConfirmMyOrderBtn();
     orderSummaryPage.checkPageIsVisible();
   }
@@ -121,11 +127,13 @@ Data(file_handler.getData())
     authenticationPage.clickSubmitLoginBtn();
     myAccountPage.clickT_ShirtsBtn();
     openCatalogPage.clickQuickViewImg();
+    openCatalogPage.checkPageIsVisible();
     productPage.clickAddToCartBtn();
     productPage.getProductPrice();
     const priceOnProductPage = await productPage.getProductPrice();
     console.log(priceOnProductPage);
     productPage.clickProceedToCheckoutBtn();
+    productPage.checkPageIsVisible();
     shoppingCartSummaryPage.getPriceOnShoppingCartPage();
     const priceOnShoppingCartPage =
       await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
@@ -134,9 +142,12 @@ Data(file_handler.getData())
     shoppingCartSummaryPage.clickProceedToCheckoutBtn();
     shoppingCartSummaryPage.checkPageIsVisible();
     step1Page.clickProceedToCheckoutBtn();
+    step1Page.checkPageIsVisible();
     shippingPage.checkAgreeCheckBox();
     shippingPage.clickProceedToCheckoutBtn();
+    shippingPage.checkPageIsVisible();
     paymentMethodPage.clickPayByBankWireBtn();
+    paymentMethodPage.checkPageIsVisible();
     orderSummaryPage.clickConfirmMyOrderBtn();
     orderSummaryPage.checkPageIsVisible();
   }

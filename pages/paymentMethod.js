@@ -19,7 +19,8 @@ module.exports = {
   },
 
   checkPageIsVisible(){
-    I.retry().waitForVisible({ xpath: `//*[text()='Order summary']` });
+    //I.retry().waitForVisible({ xpath: `//*[text()='Order summary']` });
+    I.waitForVisible({xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`});
   }
 
 };

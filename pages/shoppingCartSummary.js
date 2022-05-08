@@ -3,10 +3,10 @@ const { I } = inject();
 module.exports = {
   shoppingCartSummaryLink:
     "http://automationpractice.com/index.php?controller=order",
-  price: {css: "#total_product"},
+  price: { css: "#total_product" },
   //price: {xpath: `//*[@id="product_price_1_1_683952"]/span`},
-  proceedToCheckoutBtn: { xpath: '//*[@id="center_column"]/p[2]/a[1]' }, 
-  
+  proceedToCheckoutBtn: { xpath: '//*[@id="center_column"]/p[2]/a[1]' },
+
   openShoppingCartSummaryLink() {
     I.amOnPage(this.shoppingCartSummaryLink);
   },
@@ -15,17 +15,17 @@ module.exports = {
     I.waitForVisible(this.proceedToCheckoutBtn);
   },
 
-  async getPriceOnShoppingCartPage(){
+  async getPriceOnShoppingCartPage() {
     this.waitForPageLoad();
     return await I.retry().grabTextFrom(this.price);
   },
 
   clickProceedToCheckoutBtn() {
-        I.click(this.proceedToCheckoutBtn);
+    I.click(this.proceedToCheckoutBtn);
   },
 
-  checkPageIsVisible(){
-    I.retry().waitForVisible({ xpath: `//*[text()='Addresses']` });
+  checkPageIsVisible() {
+    //I.retry().waitForVisible({ xpath: `//*[text()='Addresses']` });
+    I.waitForVisible({xpath: `//div['#center_column']/h1['text()=Addresses']`});
   }
-
 };

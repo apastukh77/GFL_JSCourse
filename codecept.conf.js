@@ -41,7 +41,8 @@ exports.config = {
     helper: "./helper/helper.js",
     file_handler: './helper/file_handler.js',
     email_password_output: './email_password/email_password_output.txt',
-    email_password_input: './email_password/email_password_input.txt'
+    email_password_input: './email_password/email_password_input.txt',
+    randomizer: './randomizer/randomizer.js'
   },
   bootstrap: null,
   mocha: {},

@@ -30,10 +30,10 @@ module.exports = {
   async getProductPrice(){
     return await I.grabTextFrom(this.price);
   },
-
   
   checkPageIsVisible(){
-    I.retry(2).waitForVisible({ xpath: `//*[text()='Shopping-cart summary']` });
+    //I.retry(2).waitForVisible({ xpath: `//*[text()='Shopping-cart summary']` });
+    I.waitForVisible({xpath: `//div/h1['@class=cart_title,text()=Shopping-cart summary']`});
   }
 
 };

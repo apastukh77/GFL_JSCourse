@@ -44,24 +44,24 @@ module.exports = {
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
     I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
     I.click(this.daysDOBPersonalInfoSelect);
-    try{
-    I.retry().selectOption(
-      this.daysDOBPersonalInfoSelect,
-      user.getRandomDayDOB()
-    );
-    } catch(e){
-      console.log('Error in select Day option');
-    };
+    try {
+      I.retry().selectOption(
+        this.daysDOBPersonalInfoSelect,
+        user.getRandomDayDOB()
+      );
+    } catch (e) {
+      console.log("Error in select Day option");
+    }
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
-    try{
-    I.retry().selectOption(
-      this.monthsDOBPersonalInfoSelect,
-      user.getRandomMonthDOB()
-    );
-    } catch (e){
-      console.log('Error in select Month option');
-    };
+    try {
+      I.retry().selectOption(
+        this.monthsDOBPersonalInfoSelect,
+        user.getRandomMonthDOB()
+      );
+    } catch (e) {
+      console.log("Error in select Month option");
+    }
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
     I.selectOption(this.yearsDOBPersonalInfoSelect, user.getRandomYearDOB());

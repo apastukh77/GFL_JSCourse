@@ -18,9 +18,10 @@ module.exports = {
     I.click(this.payByBankWireBtn);
   },
 
-  checkPageIsVisible(){
+  checkPageIsVisible() {
     //I.retry().waitForVisible({ xpath: `//*[text()='Order summary']` });
-    I.waitForVisible({xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`});
-  }
-
+    I.waitForVisible({
+      xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`,
+    });
+  },
 };

@@ -26,6 +26,8 @@ module.exports = {
 
   checkPageIsVisible() {
     //I.retry().waitForVisible({ xpath: `//*[text()='Addresses']` });
-    I.waitForVisible({xpath: `//div['#center_column']/h1['text()=Addresses']`});
-  }
+    I.waitForVisible({
+      xpath: `//div['#center_column']/h1['text()=Addresses']`,
+    });
+  },
 };

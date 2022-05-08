@@ -24,7 +24,6 @@ xScenario(
     user,
     helper,
     file_handler,
-    
   }) => {
     homePage.clickSignIn();
     helper.createUniqueEmail();
@@ -105,55 +104,54 @@ xScenario(
 );
 
 Data(file_handler.getData())
-.Scenario(
-  "multi login_2",
-  async ({
-    I,
-    current,
-    homePage,
-    authenticationPage,
-    myAccountPage,
-    productPage,
-    step1Page,
-    shoppingCartSummaryPage,
-    shippingPage,
-    paymentMethodPage,
-    orderSummaryPage,
-    openCatalogPage,
-  }) => {
-    homePage.clickSignIn();
-    authenticationPage.fillAlreadyRegisteredEmailInput(current.email);
-    authenticationPage.fillAlreadyRegisteredPasswdInput(current.password);
-    authenticationPage.clickSubmitLoginBtn();
-    myAccountPage.clickT_ShirtsBtn();
-    openCatalogPage.clickQuickViewImg();
-    openCatalogPage.checkPageIsVisible();
-    productPage.clickAddToCartBtn();
-    productPage.getProductPrice();
-    const priceOnProductPage = await productPage.getProductPrice();
-    console.log(priceOnProductPage);
-    productPage.clickProceedToCheckoutBtn();
-    productPage.checkPageIsVisible();
-    shoppingCartSummaryPage.getPriceOnShoppingCartPage();
-    const priceOnShoppingCartPage =
-      await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
-    console.log(priceOnProductPage);
-    I.assertEqual(priceOnProductPage, priceOnShoppingCartPage);
-    shoppingCartSummaryPage.clickProceedToCheckoutBtn();
-    shoppingCartSummaryPage.checkPageIsVisible();
-    step1Page.clickProceedToCheckoutBtn();
-    step1Page.checkPageIsVisible();
-    shippingPage.checkAgreeCheckBox();
-    shippingPage.clickProceedToCheckoutBtn();
-    shippingPage.checkPageIsVisible();
-    paymentMethodPage.clickPayByBankWireBtn();
-    paymentMethodPage.checkPageIsVisible();
-    orderSummaryPage.clickConfirmMyOrderBtn();
-    orderSummaryPage.checkPageIsVisible();
-  }
-)
-.tag("@multi_login_2");
-
+  .Scenario(
+    "multi login_2",
+    async ({
+      I,
+      current,
+      homePage,
+      authenticationPage,
+      myAccountPage,
+      productPage,
+      step1Page,
+      shoppingCartSummaryPage,
+      shippingPage,
+      paymentMethodPage,
+      orderSummaryPage,
+      openCatalogPage,
+    }) => {
+      homePage.clickSignIn();
+      authenticationPage.fillAlreadyRegisteredEmailInput(current.email);
+      authenticationPage.fillAlreadyRegisteredPasswdInput(current.password);
+      authenticationPage.clickSubmitLoginBtn();
+      myAccountPage.clickT_ShirtsBtn();
+      openCatalogPage.clickQuickViewImg();
+      openCatalogPage.checkPageIsVisible();
+      productPage.clickAddToCartBtn();
+      productPage.getProductPrice();
+      const priceOnProductPage = await productPage.getProductPrice();
+      console.log(priceOnProductPage);
+      productPage.clickProceedToCheckoutBtn();
+      productPage.checkPageIsVisible();
+      shoppingCartSummaryPage.getPriceOnShoppingCartPage();
+      const priceOnShoppingCartPage =
+        await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
+      console.log(priceOnProductPage);
+      I.assertEqual(priceOnProductPage, priceOnShoppingCartPage);
+      shoppingCartSummaryPage.clickProceedToCheckoutBtn();
+      shoppingCartSummaryPage.checkPageIsVisible();
+      step1Page.clickProceedToCheckoutBtn();
+      step1Page.checkPageIsVisible();
+      shippingPage.checkAgreeCheckBox();
+      shippingPage.clickProceedToCheckoutBtn();
+      shippingPage.checkPageIsVisible();
+      paymentMethodPage.clickPayByBankWireBtn();
+      paymentMethodPage.checkPageIsVisible();
+      orderSummaryPage.clickConfirmMyOrderBtn();
+      orderSummaryPage.checkPageIsVisible();
+    }
+  )
+  .tag("@multi_login_2");
 
 After(({ I, authenticationPage, myAccountPage }) => {
   myAccountPage.goOnMyAccountPage();

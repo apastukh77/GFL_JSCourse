@@ -18,10 +18,7 @@ module.exports = {
     I.click(this.confirmMyOrderBtn);
   },
 
-  checkPageIsVisible(){
+  checkPageIsVisible() {
     I.retry().waitForVisible({ xpath: `//*[text()='Order confirmation']` });
-  }
-
-
-
+  },
 };

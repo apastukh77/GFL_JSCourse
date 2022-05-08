@@ -20,8 +20,7 @@ module.exports = {
     I.forceClick(this.quickViewImg);
   },
 
-  checkPageIsVisible(){
+  checkPageIsVisible() {
     I.retry().waitForVisible({ xpath: `//*[text()='Data sheet']` });
-  }
-
+  },
 };

@@ -13,10 +13,13 @@ type paymentMethodPage = typeof import('./pages/paymentMethod.js');
 type orderSummaryPage = typeof import('./pages/orderSummary.js');
 type user = typeof import('./userDate/user.js');
 type helper = typeof import('./helper/helper.js');
+type file_handler = typeof import('./helper/file_handler.js');
+type email_password_output = typeof import('./email_password/email_password_output.txt');
+type email_password_input = typeof import('./email_password/email_password_input.txt');
 type ChaiWrapper = import('codeceptjs-chai');
 
 declare namespace CodeceptJS {
-  interface SupportObject { I: I, current: any, homePage: homePage, authenticationPage: authenticationPage, createAccountPage: createAccountPage, myAccountPage: myAccountPage, openCatalogPage: openCatalogPage, productPage: productPage, shoppingCartSummaryPage: shoppingCartSummaryPage, step1Page: step1Page, shippingPage: shippingPage, paymentMethodPage: paymentMethodPage, orderSummaryPage: orderSummaryPage, user: user, helper: helper }
+  interface SupportObject { I: I, current: any, homePage: homePage, authenticationPage: authenticationPage, createAccountPage: createAccountPage, myAccountPage: myAccountPage, openCatalogPage: openCatalogPage, productPage: productPage, shoppingCartSummaryPage: shoppingCartSummaryPage, step1Page: step1Page, shippingPage: shippingPage, paymentMethodPage: paymentMethodPage, orderSummaryPage: orderSummaryPage, user: user, helper: helper, file_handler: file_handler, email_password_output: email_password_output, email_password_input: email_password_input }
   interface Methods extends Playwright, ChaiWrapper {}
   interface I extends ReturnType<steps_file>, WithTranslation<ChaiWrapper> {}
   namespace Translation {

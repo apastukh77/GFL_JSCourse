@@ -1,9 +1,8 @@
 const { I } = inject();
 
 module.exports = {
-
   firstName: "Jonathan",
-  lastName: "O\'Sullivan",
+  lastName: "O'Sullivan",
   state: "Alabama",
   city: "Birmingham",
   zipCode: "35242",
@@ -53,13 +52,11 @@ module.exports = {
     randomYearDOB = random;
     return (yearDOB = String(randomYearDOB));
   },
-
 };
 
-  
 let randomizer = {
-  getRandomNum (min, max) {
+  getRandomNum(min, max) {
     random = Math.floor(Math.random() * (max - min + 1)) + min;
     return random;
-  }
-}
+  },
+};

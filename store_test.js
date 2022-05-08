@@ -1,3 +1,12 @@
+const file_handler = require("./helper/file_handler");
+
+let logins = file_handler.getContentFromFile(
+  "./email_password/email_password_input.txt"
+);
+console.log(logins);
+let array = file_handler.getArrayOfObjects(logins);
+console.log(array);
+
 Feature("Store");
 
 Before(({ I, homePage }) => {
@@ -5,13 +14,23 @@ Before(({ I, homePage }) => {
   I.say("Before test message");
 });
 
-Scenario(
+xScenario(
   "test something",
-  ({ I, homePage, authenticationPage, createAccountPage, user, helper }) => {
+  ({
+    I,
+    homePage,
+    authenticationPage,
+    createAccountPage,
+    user,
+    helper,
+    file_handler,
+  }) => {
     homePage.clickSignIn();
     helper.createUniqueEmail();
     helper.createUniquePasswd();
     console.log("email: " + uniqueEmail + " " + "password: " + uniquePasswd);
+    file_handler.recordEmailPasswordToFile();
+    file_handler.getData();
     authenticationPage.fillCreateAccountEmailInput(uniqueEmail);
     authenticationPage.clickCreateAccountBtn();
     createAccountPage.fillNewUserForm(user, uniquePasswd);
@@ -20,7 +39,24 @@ Scenario(
   }
 );
 
-Scenario(
+Data(file_handler.getData())
+  .Scenario(
+    "multi login",
+    ({ current, homePage, authenticationPage, user, createAccountPage }) => {
+      console.log(
+        "email: " + current.email + "\npassword: " + current.password
+      );
+      homePage.clickSignIn();
+      authenticationPage.fillCreateAccountEmailInput(current.email);
+      authenticationPage.clickCreateAccountBtn();
+      createAccountPage.fillNewUserForm(user, current.password);
+      createAccountPage.clickSubmitAccountBtn();
+      createAccountPage.checkPageIsVisible();
+    }
+  )
+  .tag("@multi_login");
+
+xScenario(
   "test something_2",
   async ({
     I,
@@ -59,7 +95,6 @@ Scenario(
     paymentMethodPage.clickPayByBankWireBtn();
     orderSummaryPage.clickConfirmMyOrderBtn();
     orderSummaryPage.checkPageIsVisible();
-    
   }
 );
 

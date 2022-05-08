@@ -9,5 +9,4 @@ module.exports = {
   clickSignIn() {
     I.click(this.signInButton);
   }
-  
 };

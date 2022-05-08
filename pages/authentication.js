@@ -43,6 +43,5 @@ module.exports = {
 
   clickSubmitLoginBtn() {
     I.click(this.submitLoginBtn);
-  }
-
+  },
 };

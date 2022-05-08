@@ -23,12 +23,11 @@ module.exports = {
     I.click(this.logoutBtn);
   },
 
-  checkPageIsVisible(){
+  checkPageIsVisible() {
     I.waitForVisible({ xpath: `//*[text()='Catalog']` });
   },
 
-  goOnMyAccountPage(){
+  goOnMyAccountPage() {
     I.amOnPage(this.myAccountLink);
-  }
-
+  },
 };

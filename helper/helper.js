@@ -2,11 +2,17 @@ const { I } = inject();
 
 module.exports = {
 
+  collectEmailPassword(uniqueEmail, uniquePasswd) {
+    let collectedEmailPassword = uniqueEmail + " : " + uniquePasswd +"\n";
+    return (collectedEmailPassword.toString());
+       
+  },
+
   generateEmail() {
     return (generateEmail = Date.now() + "@test.org.ca");
   },
 
-  createUniqueEmail(){
+  createUniqueEmail() {
     uniqueEmail = this.generateEmail();
     return uniqueEmail;
   },
@@ -102,7 +108,4 @@ module.exports = {
     uniquePasswd = this.password();
     return uniquePasswd;
   },
-
 };
-
-

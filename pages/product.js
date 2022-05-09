@@ -6,9 +6,12 @@ module.exports = {
   //addToCartBtn: {xpath: `//button[@class ='exclusive']`},
   addToCartBtn: { xpath: `//span[.='Add to cart']` },
   proceedToCheckoutBtn: {
-    xpath: '//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a',
+    xpath: `//div[@class='button-container']/a[@title='Proceed to checkout']`,
   },
   price: { css: "#our_price_display" },
+  visibleNextPage: {
+    xpath: `//div/h1['@class=cart_title,text()=Shopping-cart summary']`,
+  },
 
   openToProductLink() {
     I.amOnPage(this.toProductLink);
@@ -32,9 +35,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    //I.retry(2).waitForVisible({ xpath: `//*[text()='Shopping-cart summary']` });
-    I.waitForVisible({
-      xpath: `//div/h1['@class=cart_title,text()=Shopping-cart summary']`,
-    });
+    I.waitForVisible(this.visibleNextPage);
   },
 };

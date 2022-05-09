@@ -3,20 +3,21 @@ const { I } = inject();
 module.exports = {
   myAccountLink:
     "http://automationpractice.com/index.php?controller=my-account",
-  logoutBtn: { xpath: '//*[@id="header"]/div[2]/div/div/nav/div[2]/a' },
-  t_ShirtsBtn: { xpath: '//*[@id="block_top_menu"]/ul/li[3]/a' },
+  logoutBtn: { xpath: `//nav/div[@class='header_user_info']/a[@class='logout']` },
+  tShirtsBtn: { xpath: `//div[@id='block_top_menu']/ul/li/a[@title='T-shirts']` },
+  visibleNextPage:{ xpath: `//div['#layered_block_left']/p[text()='Catalog']` },
 
   openMyAccountLink() {
     I.amOnPage(this.myAccountLink);
   },
 
   waitForPageLoad() {
-    I.waitForVisible(this.t_ShirtsBtn);
+    I.waitForVisible(this.tShirtsBtn);
   },
 
   clickT_ShirtsBtn() {
     this.waitForPageLoad();
-    I.click(this.t_ShirtsBtn);
+    I.click(this.tShirtsBtn);
   },
 
   clickLogoutBtn() {
@@ -24,7 +25,7 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible({ xpath: `//*[text()='Catalog']` });
+    I.waitForVisible(this.visibleNextPage);
   },
 
   goOnMyAccountPage() {

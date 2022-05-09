@@ -6,16 +6,12 @@ module.exports = {
     return collectedEmailPassword.toString();
   },
 
-  generateEmail() {
-    return (generateEmail = Date.now() + "@test.org.ca");
-  },
-
   createUniqueEmail() {
-    uniqueEmail = this.generateEmail();
+    uniqueEmail = Date.now() + "@test.org.ca";
     return uniqueEmail;
   },
 
-  password() {
+  createUniquePasswd() {
     var generatedPasswd = [],
       random = 0,
       endPasswd = "";
@@ -98,12 +94,12 @@ module.exports = {
       random = Math.floor(Math.random() * passwdArray.length);
       generatedPasswd[i] = passwdArray[random];
     }
-    endPasswd = generatedPasswd.toString().replace(/[\s.,%]/g, "");
-    return endPasswd;
-  },
-
-  createUniquePasswd() {
-    uniquePasswd = this.password();
+    uniquePasswd = generatedPasswd.toString().replace(/[\s.,%]/g, "");
     return uniquePasswd;
   },
+
+  // createUniquePasswd() {
+  //   uniquePasswd = this.password();
+  //   return uniquePasswd;
+  // },
 };

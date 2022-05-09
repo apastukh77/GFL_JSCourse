@@ -8,8 +8,7 @@ module.exports = {
   alreadyRegisteredEmailInput: { css: "#email" },
   alreadyRegisteredPasswdInput: { css: "#passwd" },
   submitLoginBtn: { css: "#SubmitLogin" },
-  generateEmail: "",
-
+  
   openAuthentication() {
     I.amOnPage(this.authenticationLink);
   },

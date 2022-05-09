@@ -22,6 +22,7 @@ module.exports = {
   mobilePhoneAddrInput: { css: "#phone_mobile" },
   addressAliasAddrInput: { css: "#alias" },
   submitAccountBtn: { css: "#submitAccount" },
+  visibleNextPage: { xpath: `//div[@class='breadcrumb clearfix']/span[text()='My account']` },
 
   openCreateAccountLink() {
     I.amOnPage(this.createAccountLink);
@@ -88,6 +89,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible({ xpath: `//*[text()='My account']` });
+    I.waitForVisible(this.visibleNextPage);
   },
 };

@@ -4,8 +4,9 @@ module.exports = {
   catalogLink:
     "http://automationpractice.com/index.php?id_category=5&controller=category",
   quickViewImg: {
-    xpath: `//*[@id="center_column"]/ul/li/div/div[1]/div/a[1]/img`,
+    xpath: `//div/a[@class='product_img_link']/img[@title='Faded Short Sleeve T-shirts']`,
   },
+  visibleNextPage: {xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']` },
 
   openCatalogLink() {
     I.amOnPage(this.openCatalogLink);
@@ -21,9 +22,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    //I.retry().waitForVisible({ xpath: `//*[text()='Data sheet']` });
-    I.waitForVisible({
-      xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']`,
-    });
+      I.waitForVisible(this.visibleNextPage);
   },
 };

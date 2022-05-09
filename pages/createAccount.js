@@ -22,7 +22,9 @@ module.exports = {
   mobilePhoneAddrInput: { css: "#phone_mobile" },
   addressAliasAddrInput: { css: "#alias" },
   submitAccountBtn: { css: "#submitAccount" },
-  visibleNextPage: { xpath: `//div[@class='breadcrumb clearfix']/span[text()='My account']` },
+  visibleNextPage: {
+    xpath: `//h1[text()='My account']`,
+  },
 
   openCreateAccountLink() {
     I.amOnPage(this.createAccountLink);
@@ -31,7 +33,7 @@ module.exports = {
     I.waitForVisible(this.submitAccountBtn);
   },
 
-  fillNewUserForm(user, uniquePasswd) {
+  fillNewUserForm(user, password) {
     this.waitForPageLoad();
     switch (user.gender()) {
       case 1:
@@ -43,7 +45,7 @@ module.exports = {
     }
     I.fillField(this.firstNamePersonalInfoInput, user.firstName);
     I.fillField(this.lastNamePersonalInfoInput, user.lastName);
-    I.fillField(this.passwdPersonalInfoInput, uniquePasswd);
+    I.fillField(this.passwdPersonalInfoInput, password);
     I.click(this.daysDOBPersonalInfoSelect);
     try {
       I.retry().selectOption(

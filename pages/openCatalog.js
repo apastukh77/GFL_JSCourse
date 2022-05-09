@@ -6,7 +6,9 @@ module.exports = {
   quickViewImg: {
     xpath: `//div/a[@class='product_img_link']/img[@title='Faded Short Sleeve T-shirts']`,
   },
-  visibleNextPage: {xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']` },
+  visibleNextPage: {
+    xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']`,
+  },
 
   openCatalogLink() {
     I.amOnPage(this.openCatalogLink);
@@ -22,6 +24,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-      I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visibleNextPage);
   },
 };

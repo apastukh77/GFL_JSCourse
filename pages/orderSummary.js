@@ -3,9 +3,12 @@ const { I } = inject();
 module.exports = {
   orderSummaryLink:
     "http://automationpractice.com/index.php?fc=module&module=bankwire&controller=payment",
-  confirmMyOrderBtn: { xpath: `//p[@id="cart_navigation"]/button[@class='button btn btn-default button-medium']` },
-  visibleNextPage: { xpath: `//div[@class='breadcrumb clearfix']/span[text()='Order confirmation']` },
-
+  confirmMyOrderBtn: {
+    xpath: `//button[@class='button btn btn-default button-medium']`,
+  },
+  visibleNextPage: {
+    xpath: `//div[@class='breadcrumb clearfix']/span[text()='Order confirmation']`,
+  },
 
   openOrderSummaryLink() {
     I.amOnPage(this.shoppingCartSummaryLink);

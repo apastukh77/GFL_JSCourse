@@ -5,8 +5,10 @@ module.exports = {
     "http://automationpractice.com/index.php?controller=order",
   price: { css: "#total_product" },
   //price: {xpath: `//*[@id="product_price_1_1_683952"]/span`},
-  proceedToCheckoutBtn: { xpath: `//div[@id="center_column"]/p[@class='cart_navigation clearfix']/a[@title='Proceed to checkout']` },
-  visibleNextPage:{xpath: `//div['#center_column']/h1['text()=Addresses']`},
+  proceedToCheckoutBtn: {
+    xpath: `//div[@id="center_column"]/p[@class='cart_navigation clearfix']/a[@title='Proceed to checkout']`,
+  },
+  visibleNextPage: { xpath: `//div['#center_column']/h1['text()=Addresses']` },
 
   openShoppingCartSummaryLink() {
     I.amOnPage(this.shoppingCartSummaryLink);
@@ -26,6 +28,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-      I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visibleNextPage);
   },
 };

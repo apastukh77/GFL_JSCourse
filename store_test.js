@@ -26,14 +26,14 @@ Scenario(
     file_handler,
   }) => {
     homePage.clickSignIn();
-    helper.createUniqueEmail();
-    helper.createUniquePasswd();
-    console.log("email: " + uniqueEmail + " " + "password: " + uniquePasswd);
-    file_handler.recordEmailPasswordToFile();
+    email = user.createUniqueEmail();
+    password = user.createUniquePasswd();
+    console.log("email: " + email + " " + "password: " + password);
+    file_handler.recordEmailPasswordToFile(helper.collectEmailPassword(email, password));
     file_handler.getData();
-    authenticationPage.fillCreateAccountEmailInput(uniqueEmail);
+    authenticationPage.fillCreateAccountEmailInput( email );
     authenticationPage.clickCreateAccountBtn();
-    createAccountPage.fillNewUserForm(user, uniquePasswd);
+    createAccountPage.fillNewUserForm(user, password);
     createAccountPage.clickSubmitAccountBtn();
     createAccountPage.checkPageIsVisible();
   }
@@ -72,8 +72,8 @@ Scenario(
     openCatalogPage,
   }) => {
     homePage.clickSignIn();
-    authenticationPage.fillAlreadyRegisteredEmailInput(uniqueEmail);
-    authenticationPage.fillAlreadyRegisteredPasswdInput(uniquePasswd);
+    authenticationPage.fillAlreadyRegisteredEmailInput(email);
+    authenticationPage.fillAlreadyRegisteredPasswdInput(password);
     authenticationPage.clickSubmitLoginBtn();
     myAccountPage.clickT_ShirtsBtn();
     openCatalogPage.clickQuickViewImg();

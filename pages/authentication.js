@@ -8,7 +8,7 @@ module.exports = {
   alreadyRegisteredEmailInput: { css: "#email" },
   alreadyRegisteredPasswdInput: { css: "#passwd" },
   submitLoginBtn: { css: "#SubmitLogin" },
-  
+
   openAuthentication() {
     I.amOnPage(this.authenticationLink);
   },
@@ -17,9 +17,9 @@ module.exports = {
     I.waitForVisible(this.createAccountEmailInput);
   },
 
-  fillCreateAccountEmailInput(uniqueEmail) {
+  fillCreateAccountEmailInput(email) {
     this.waitForPageLoad();
-    I.fillField(this.createAccountEmailInput, uniqueEmail);
+    I.fillField(this.createAccountEmailInput, email);
   },
 
   clickCreateAccountBtn() {
@@ -31,13 +31,13 @@ module.exports = {
     I.waitForVisible(this.alreadyRegisteredPasswdInput);
   },
 
-  fillAlreadyRegisteredEmailInput(uniqueEmail) {
+  fillAlreadyRegisteredEmailInput(email) {
     this.waitForPageLoad2();
-    I.fillField(this.alreadyRegisteredEmailInput, uniqueEmail);
+    I.fillField(this.alreadyRegisteredEmailInput, email);
   },
 
-  fillAlreadyRegisteredPasswdInput(uniquePasswd) {
-    I.fillField(this.alreadyRegisteredPasswdInput, uniquePasswd);
+  fillAlreadyRegisteredPasswdInput(password) {
+    I.fillField(this.alreadyRegisteredPasswdInput, password);
   },
 
   clickSubmitLoginBtn() {

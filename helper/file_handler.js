@@ -1,8 +1,7 @@
 const { I } = inject();
 const fs = require("fs");
 const helper = require("./helper");
-const FILE_PATH_INPUT = "./email_password/email_password_input.txt";
-const FILE_PATH_OUTPUT = "./email_password/email_password_output.txt";
+const FILE_PATH = "./email_password/email_password.txt";
 
 module.exports = {
   formRecordingData() {
@@ -28,24 +27,34 @@ module.exports = {
     }
   },
 
+  // getArrayOfObjects(string) {
+  //    let rowsArray = string.split(' : ');
+  //   let arrayOfObjects = [];
+  //   for (const row of rowsArray) {
+  //     arrayOfObjects.push({
+  //       email: row.split(/\s/)[0],
+  //       password: row.split(/\:\s/)[1],
+  //     });
+  //   }
+  //   return arrayOfObjects;
+  // },
+
   getArrayOfObjects(string) {
-    let rowsArray = string.split(/\r\n/);
+    let rowsArray = string.split(' : ');
     let arrayOfObjects = [];
-    for (const row of rowsArray) {
-      arrayOfObjects.push({
-        email: row.split(/\s/)[0],
-        password: row.split(/\:\s/)[1],
-      });
-    }
+    arrayOfObjects.push({
+      email: rowsArray[0],
+      password: rowsArray[1],
+    });
     return arrayOfObjects;
   },
 
   getData() {
-    let string = this.getContentFromFile(FILE_PATH_INPUT);
+    let string = this.getContentFromFile(FILE_PATH);
     return this.getArrayOfObjects(string);
   },
 
   recordEmailPasswordToFile() {
-    this.recordContentToFile(FILE_PATH_OUTPUT);
+    this.recordContentToFile(FILE_PATH);
   },
 };

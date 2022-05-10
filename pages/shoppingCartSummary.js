@@ -3,13 +3,13 @@ const { I } = inject();
 module.exports = {
   shoppingCartSummaryLink:
     "http://automationpractice.com/index.php?controller=order",
-    
+
   price: { css: "#total_product" },
 
   proceedToCheckoutBtn: {
     xpath: `//div[@id="center_column"]/p[@class='cart_navigation clearfix']/a[@title='Proceed to checkout']`,
   },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div/h1['@class=cart_title,text()=Shopping-cart summary']`,
   },
 
@@ -31,6 +31,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

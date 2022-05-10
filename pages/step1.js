@@ -5,7 +5,7 @@ module.exports = {
   proceedToCheckoutBtn: {
     xpath: `//div[@id="center_column"]/form/p/button[@type='submit']`,
   },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['#center_column']/h1['text()=Addresses']`,
   },
 
@@ -23,6 +23,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

@@ -11,12 +11,8 @@ module.exports = {
     xpath: `//div[@id='block_top_menu']/ul/li/a[@title='T-shirts']`,
   },
 
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//h1[text()='My account']`,
-  },
-
-  openMyAccountLink() {
-    I.amOnPage(this.myAccountLink);
   },
 
   waitForPageLoad() {
@@ -33,7 +29,7 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 
   goOnMyAccountPage() {

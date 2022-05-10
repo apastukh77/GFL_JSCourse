@@ -6,7 +6,7 @@ module.exports = {
   payByBankWireBtn: {
     xpath: `//div[@id="HOOK_PAYMENT"]/div[@class='row']/div/p/a[@class='bankwire']`,
   },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['@class=row']/div['#center_column']/h1[text()='Please choose your payment method']`,
   },
 
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

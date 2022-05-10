@@ -9,7 +9,7 @@ module.exports = {
     xpath: `//div[@class='button-container']/a[@title='Proceed to checkout']`,
   },
   price: { css: "#our_price_display" },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']`,
   },
 
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

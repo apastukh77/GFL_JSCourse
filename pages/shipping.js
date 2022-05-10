@@ -6,7 +6,7 @@ module.exports = {
     xpath: `//form[@id="form"]/p/button[@name='processCarrier']`,
   },
   agreeCheckBox: { css: "#cgv" },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['@class=breadcrumb clearfix']/span[text()='Shipping']`,
   },
 
@@ -28,6 +28,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

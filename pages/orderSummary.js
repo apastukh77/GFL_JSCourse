@@ -6,7 +6,7 @@ module.exports = {
   confirmMyOrderBtn: {
     xpath: `//button[@class='button btn btn-default button-medium']`,
   },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`,
   },
 
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

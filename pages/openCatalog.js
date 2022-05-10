@@ -6,7 +6,7 @@ module.exports = {
   quickViewImg: {
     xpath: `//div/a[@class='product_img_link']/img[@title='Faded Short Sleeve T-shirts']`,
   },
-  visibleNextPage: {
+  visiblePage: {
     xpath: `//div['#layered_block_left']/p[text()='Catalog']`,
   },
 
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
+    I.waitForVisible(this.visiblePage);
   },
 };

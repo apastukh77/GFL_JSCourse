@@ -6,6 +6,7 @@ module.exports = {
   logoutBtn: {
     xpath: `//a[@class='logout']`,
   },
+  
   tShirtsBtn: {
     xpath: `//div[@id='block_top_menu']/ul/li/a[@title='T-shirts']`,
   },

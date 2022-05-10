@@ -1,11 +1,13 @@
 const file_handler = require("./helper/file_handler");
-
+//------------
+//Check file content in email_password.txt before 2nd scenario
 let logins = file_handler.getContentFromFile(
   "./email_password/email_password.txt"
 );
 console.log(logins);
 let array = file_handler.getArrayOfObjects(logins);
 console.log(array);
+//-------------
 
 Feature("Store");
 
@@ -58,13 +60,15 @@ Scenario(
     authenticationPage.fillAlreadyRegisteredEmailInput(email);
     authenticationPage.fillAlreadyRegisteredPasswdInput(password);
     authenticationPage.clickSubmitLoginBtn();
+    myAccountPage.checkPageIsVisible();
     myAccountPage.clickT_ShirtsBtn();
     openCatalogPage.checkPageIsVisible();
     openCatalogPage.clickQuickViewImg();
     productPage.checkPageIsVisible();
     productPage.clickAddToCartBtn();
     productPage.getProductPrice();
-    const priceOnProductPage = await productPage.getProductPrice();
+    const priceOnProductPage = 
+      await productPage.getProductPrice();
     console.log(priceOnProductPage);
     productPage.clickProceedToCheckoutBtn();
     shoppingCartSummaryPage.checkPageIsVisible();

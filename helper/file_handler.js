@@ -27,18 +27,6 @@ module.exports = {
     }
   },
 
-  // getArrayOfObjects(string) {
-  //    let rowsArray = string.split(' : ');
-  //   let arrayOfObjects = [];
-  //   for (const row of rowsArray) {
-  //     arrayOfObjects.push({
-  //       email: row.split(/\s/)[0],
-  //       password: row.split(/\:\s/)[1],
-  //     });
-  //   }
-  //   return arrayOfObjects;
-  // },
-
   getArrayOfObjects(string) {
     let rowsArray = string.split(' : ');
     let arrayOfObjects = [];

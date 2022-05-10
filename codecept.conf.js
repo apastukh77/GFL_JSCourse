@@ -37,13 +37,13 @@ exports.config = {
     shippingPage: "./pages/shipping.js",
     paymentMethodPage: "./pages/paymentMethod.js",
     orderSummaryPage: "./pages/orderSummary.js",
+    orderConfirmationPage: './pages/orderConfirmation.js',
     user: "./userDate/user.js",
     helper: "./helper/helper.js",
     file_handler: './helper/file_handler.js',
-    email_password_output: './email_password/email_password_output.txt',
-    email_password_input: './email_password/email_password_input.txt',
-    randomizer: './randomizer/randomizer.js'
-  },
+    email_password: './email_password/email_password.txt'
+  
+    },
   bootstrap: null,
   mocha: {},
   name: "GFL_JSCourse",

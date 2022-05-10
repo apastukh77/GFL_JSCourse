@@ -15,14 +15,14 @@ Before(({ I, homePage }) => {
 });
 
 Scenario(
-  "test something",
+  "test a new customer registration ",
   ({
     I,
     homePage,
     authenticationPage,
     createAccountPage,
+    myAccountPage,
     user,
-    helper,
     file_handler,
   }) => {
     homePage.clickSignIn();
@@ -35,13 +35,12 @@ Scenario(
     authenticationPage.clickCreateAccountBtn();
     createAccountPage.fillNewUserForm(user, password);
     createAccountPage.clickSubmitAccountBtn();
-    createAccountPage.checkPageIsVisible();
+    myAccountPage.checkPageIsVisible();
   }
-)
-.tag("@registration");
+).tag("@registration");
 
 Scenario(
-  "test something_2",
+  "test making purchase",
   async ({
     I,
     homePage,
@@ -60,35 +59,34 @@ Scenario(
     authenticationPage.fillAlreadyRegisteredPasswdInput(password);
     authenticationPage.clickSubmitLoginBtn();
     myAccountPage.clickT_ShirtsBtn();
-    openCatalogPage.clickQuickViewImg();
     openCatalogPage.checkPageIsVisible();
+    openCatalogPage.clickQuickViewImg();
+    productPage.checkPageIsVisible();
     productPage.clickAddToCartBtn();
     productPage.getProductPrice();
     const priceOnProductPage = await productPage.getProductPrice();
     console.log(priceOnProductPage);
     productPage.clickProceedToCheckoutBtn();
-    productPage.checkPageIsVisible();
+    shoppingCartSummaryPage.checkPageIsVisible();
     shoppingCartSummaryPage.getPriceOnShoppingCartPage();
     const priceOnShoppingCartPage =
       await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
     console.log(priceOnProductPage);
     I.assertEqual(priceOnProductPage, priceOnShoppingCartPage);
     shoppingCartSummaryPage.clickProceedToCheckoutBtn();
-    shoppingCartSummaryPage.checkPageIsVisible();
-    step1Page.clickProceedToCheckoutBtn();
     step1Page.checkPageIsVisible();
+    step1Page.clickProceedToCheckoutBtn();
+    shippingPage.checkPageIsVisible();
     shippingPage.checkAgreeCheckBox();
     shippingPage.clickProceedToCheckoutBtn();
-    shippingPage.checkPageIsVisible();
-    paymentMethodPage.clickPayByBankWireBtn();
     paymentMethodPage.checkPageIsVisible();
-    orderSummaryPage.clickConfirmMyOrderBtn();
+    paymentMethodPage.clickPayByBankWireBtn();
     orderSummaryPage.checkPageIsVisible();
+    orderSummaryPage.clickConfirmMyOrderBtn();
   }
-)
-.tag("@purchase");
+).tag("@purchase");
 
-After(({ I, authenticationPage, myAccountPage }) => {
+After(({ I, myAccountPage }) => {
   myAccountPage.goOnMyAccountPage();
   myAccountPage.clickLogoutBtn();
   console.log("After has done!");

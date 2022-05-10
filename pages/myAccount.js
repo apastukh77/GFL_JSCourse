@@ -4,14 +4,14 @@ module.exports = {
   myAccountLink:
     "http://automationpractice.com/index.php?controller=my-account",
   logoutBtn: {
-    //xpath: `//nav/div[@class='header_user_info']/a[@class='logout']`,
     xpath: `//a[@class='logout']`,
   },
   tShirtsBtn: {
     xpath: `//div[@id='block_top_menu']/ul/li/a[@title='T-shirts']`,
   },
+
   visibleNextPage: {
-    xpath: `//div['#layered_block_left']/p[text()='Catalog']`,
+    xpath: `//h1[text()='My account']`,
   },
 
   openMyAccountLink() {

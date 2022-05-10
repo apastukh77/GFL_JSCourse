@@ -6,7 +6,7 @@ module.exports = {
     xpath: `//div[@id="center_column"]/form/p/button[@type='submit']`,
   },
   visibleNextPage: {
-    xpath: `//div['@class=breadcrumb clearfix']/span[text()='Shipping']`,
+    xpath: `//div['#center_column']/h1['text()=Addresses']`,
   },
 
   openStep1Link() {

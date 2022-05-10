@@ -7,7 +7,7 @@ module.exports = {
   },
   agreeCheckBox: { css: "#cgv" },
   visibleNextPage: {
-    xpath: `//div['@class=row']/div['#center_column']/h1[text()='Please choose your payment method']`,
+    xpath: `//div['@class=breadcrumb clearfix']/span[text()='Shipping']`,
   },
 
   openShippingLink() {

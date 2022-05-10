@@ -7,7 +7,7 @@ module.exports = {
     xpath: `//div[@id="HOOK_PAYMENT"]/div[@class='row']/div/p/a[@class='bankwire']`,
   },
   visibleNextPage: {
-    xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`,
+    xpath: `//div['@class=row']/div['#center_column']/h1[text()='Please choose your payment method']`,
   },
 
   openPaymentMethodLink() {

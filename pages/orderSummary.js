@@ -7,7 +7,7 @@ module.exports = {
     xpath: `//button[@class='button btn btn-default button-medium']`,
   },
   visibleNextPage: {
-    xpath: `//div[@class='breadcrumb clearfix']/span[text()='Order confirmation']`,
+    xpath: `//div['#center_column']/h1['@class=page-heading, text()=Order summary']`,
   },
 
   openOrderSummaryLink() {

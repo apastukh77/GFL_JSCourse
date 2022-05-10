@@ -22,13 +22,11 @@ module.exports = {
   mobilePhoneAddrInput: { css: "#phone_mobile" },
   addressAliasAddrInput: { css: "#alias" },
   submitAccountBtn: { css: "#submitAccount" },
-  visibleNextPage: {
-    xpath: `//h1[text()='My account']`,
-  },
 
   openCreateAccountLink() {
     I.amOnPage(this.createAccountLink);
   },
+
   waitForPageLoad() {
     I.waitForVisible(this.submitAccountBtn);
   },
@@ -88,9 +86,5 @@ module.exports = {
 
   clickSubmitAccountBtn() {
     I.click(this.submitAccountBtn);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visibleNextPage);
   },
 };

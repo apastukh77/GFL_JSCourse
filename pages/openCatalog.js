@@ -7,7 +7,7 @@ module.exports = {
     xpath: `//div/a[@class='product_img_link']/img[@title='Faded Short Sleeve T-shirts']`,
   },
   visibleNextPage: {
-    xpath: `//div['#center_column']/div/section['@class=primary_block row']/h3[text()='Data sheet']`,
+    xpath: `//div['#layered_block_left']/p[text()='Catalog']`,
   },
 
   openCatalogLink() {

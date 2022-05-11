@@ -21,8 +21,8 @@ Scenario(
   }) => {
     let customer = user.getUser();
     homePage.clickSignIn();
-    email = customer.getCreateUniqueEmail();
-    password = customer.getCreateUniquePasswd();
+    let email = customer.getCreateUniqueEmail();
+    let password = customer.getCreateUniquePasswd();
     console.log("email: " + email + " " + "password: " + password);
     file_handler.recordEmailPasswordToFile();
     authenticationPage.fillCreateAccountEmailInput(email);

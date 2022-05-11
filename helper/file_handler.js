@@ -4,16 +4,12 @@ const helper = require("./helper");
 const FILE_PATH = "./email_password/email_password.txt";
 
 module.exports = {
-  // formRecordingData() {
-  //   let recordingData = helper.collectEmailPassword(uniqueEmail, uniquePasswd);
-  //   console.log(recordingData);//output data 
-  //   return recordingData;
-  // },
-
   recordContentToFile(path) {
     try {
-      let recordingData = helper.collectEmailPassword(uniqueEmail, uniquePasswd)
-      console.log(recordingData);
+      let recordingData = helper.collectEmailPassword(
+        uniqueEmail,
+        uniquePasswd
+      );
       fs.writeFileSync(path, recordingData, "utf8");
     } catch (err) {
       console.error(err);

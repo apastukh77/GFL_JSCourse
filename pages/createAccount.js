@@ -31,9 +31,9 @@ module.exports = {
     I.waitForVisible(this.submitAccountBtn);
   },
 
-  fillNewUserForm(user, password) {
+  fillNewUserForm(customer, password) {
     this.waitForPageLoad();
-    switch (user.gender()) {
+    switch (customer.gender()) {
       case 1:
         I.click(this.mrPersonalInfoInput);
         break;
@@ -41,14 +41,14 @@ module.exports = {
         I.click(this.mrsPersonalInfoInput);
         break;
     }
-    I.fillField(this.firstNamePersonalInfoInput, user.firstName);
-    I.fillField(this.lastNamePersonalInfoInput, user.lastName);
+    I.fillField(this.firstNamePersonalInfoInput, customer.firstName);
+    I.fillField(this.lastNamePersonalInfoInput, customer.lastName);
     I.fillField(this.passwdPersonalInfoInput, password);
     I.click(this.daysDOBPersonalInfoSelect);
     try {
       I.retry().selectOption(
         this.daysDOBPersonalInfoSelect,
-        user.getRandomDayDOB()
+        customer.getRandomDayDOB()
       );
     } catch (e) {
       console.log("Error in select Day option");
@@ -58,26 +58,26 @@ module.exports = {
     try {
       I.retry().selectOption(
         this.monthsDOBPersonalInfoSelect,
-        user.getRandomMonthDOB()
+        customer.getRandomMonthDOB()
       );
     } catch (e) {
       console.log("Error in select Month option");
     }
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
-    I.selectOption(this.yearsDOBPersonalInfoSelect, user.getRandomYearDOB());
+    I.selectOption(this.yearsDOBPersonalInfoSelect, customer.getRandomYearDOB());
     I.click(this.yearsDOBPersonalInfoSelect);
-    I.fillField(this.companyInput, user.company);
-    I.fillField(this.address1AddrInput, user.address1);
-    I.fillField(this.address2AddrInput, user.address2);
-    I.fillField(this.cityAddrInput, user.city);
+    I.fillField(this.companyInput, customer.company);
+    I.fillField(this.address1AddrInput, customer.address1);
+    I.fillField(this.address2AddrInput, customer.address2);
+    I.fillField(this.cityAddrInput, customer.city);
     I.click(this.idStateAddrSelect);
-    I.selectOption(this.idStateAddrSelect, user.state);
-    I.fillField(this.postcodeAddrInput, user.zipCode);
-    I.fillField(this.additionalInfoAddrTextArea, user.additionalInfo);
-    I.fillField(this.homePhoneAddrInput, user.homePhone);
-    I.fillField(this.mobilePhoneAddrInput, user.mobilePhone);
-    I.fillField(this.addressAliasAddrInput, user.alias());
+    I.selectOption(this.idStateAddrSelect, customer.state);
+    I.fillField(this.postcodeAddrInput, customer.zipCode);
+    I.fillField(this.additionalInfoAddrTextArea, customer.additionalInfo);
+    I.fillField(this.homePhoneAddrInput, customer.homePhone);
+    I.fillField(this.mobilePhoneAddrInput, customer.mobilePhone);
+    I.fillField(this.addressAliasAddrInput, customer.alias());
   },
 
   waitForPageLoad() {

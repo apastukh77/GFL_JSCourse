@@ -1,4 +1,5 @@
 const file_handler = require("./helper/file_handler");
+const user = require("./userDate/user");
 //------------
 //Check file content in email_password.txt before 2nd scenario
 let logins = file_handler.getContentFromFile(
@@ -8,6 +9,8 @@ console.log(logins);
 let array = file_handler.getArrayOfObjects(logins);
 console.log(array);
 //-------------
+
+
 
 Feature("Store");
 
@@ -27,15 +30,16 @@ Scenario(
     user,
     file_handler,
   }) => {
+    let customer = user.getUser();
     homePage.clickSignIn();
-    email = user.createUniqueEmail();
-    password = user.createUniquePasswd();
+    email = customer.getCreateUniqueEmail();
+    password = customer.getCreateUniquePasswd();
     console.log("email: " + email + " " + "password: " + password);
     file_handler.recordEmailPasswordToFile();
     file_handler.getData();
     authenticationPage.fillCreateAccountEmailInput(email);
     authenticationPage.clickCreateAccountBtn();
-    createAccountPage.fillNewUserForm(user, password);
+    createAccountPage.fillNewUserForm(customer, password);
     createAccountPage.clickSubmitAccountBtn();
     myAccountPage.checkPageIsVisible();
   }

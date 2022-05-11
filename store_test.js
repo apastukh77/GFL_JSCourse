@@ -25,7 +25,6 @@ Scenario(
     password = customer.getCreateUniquePasswd();
     console.log("email: " + email + " " + "password: " + password);
     file_handler.recordEmailPasswordToFile();
-    file_handler.getData();
     authenticationPage.fillCreateAccountEmailInput(email);
     authenticationPage.clickCreateAccountBtn();
     createAccountPage.fillNewUserForm(customer, password);

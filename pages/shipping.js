@@ -12,14 +12,11 @@ module.exports = {
 
   openShippingLink() {
     I.amOnPage(this.shippingLink);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.proceedToCheckoutBtn);
+    I.waitForVisible(this.visiblePage);
   },
 
   checkAgreeCheckBox() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.proceedToCheckoutBtn);
     I.click(this.agreeCheckBox);
   },
 
@@ -27,7 +24,4 @@ module.exports = {
     I.click(this.proceedToCheckoutBtn);
   },
 
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
-  },
 };

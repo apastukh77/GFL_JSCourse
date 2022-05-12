@@ -15,10 +15,7 @@ module.exports = {
 
   openToProductLink() {
     I.amOnPage(this.toProductLink);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.proceedToCheckoutBtn);
+    I.waitForVisible(this.visiblePage);
   },
 
   clickAddToCartBtn() {
@@ -27,14 +24,11 @@ module.exports = {
   },
 
   clickProceedToCheckoutBtn() {
+    I.waitForVisible(this.proceedToCheckoutBtn);
     I.click(this.proceedToCheckoutBtn);
   },
 
   async getProductPrice() {
     return await I.grabTextFrom(this.price);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
   },
 };

@@ -11,18 +11,11 @@ module.exports = {
 
   openStep1Link() {
     I.amOnPage(this.step1Link);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.proceedToCheckoutBtn);
+    I.waitForVisible(this.visiblePage);
   },
 
   clickProceedToCheckoutBtn() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.proceedToCheckoutBtn);
     I.click(this.proceedToCheckoutBtn);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
   },
 };

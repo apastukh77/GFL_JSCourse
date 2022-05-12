@@ -9,20 +9,17 @@ module.exports = {
   proceedToCheckoutBtn: {
     xpath: `//div[@id="center_column"]/p[@class='cart_navigation clearfix']/a[@title='Proceed to checkout']`,
   },
-  visiblePage: {
+  visiblePag: {
     xpath: `//div/h1['@class=cart_title,text()=Shopping-cart summary']`,
   },
 
   openShoppingCartSummaryLink() {
+    I.waitForVisible(this.visiblePage);
     I.amOnPage(this.shoppingCartSummaryLink);
   },
 
-  waitForPageLoad() {
-    I.waitForVisible(this.proceedToCheckoutBtn);
-  },
-
   async getPriceOnShoppingCartPage() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.proceedToCheckoutBtn);
     return await I.retry().grabTextFrom(this.price);
   },
 
@@ -30,7 +27,4 @@ module.exports = {
     I.click(this.proceedToCheckoutBtn);
   },
 
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
-  },
 };

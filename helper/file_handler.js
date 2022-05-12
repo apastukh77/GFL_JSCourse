@@ -1,24 +1,21 @@
 const { I } = inject();
 const fs = require("fs");
-const helper = require("./helper");
-const FILE_PATH = "./email_password/email_password.txt";
-const FILE_PATH2 = "./email_password/email_password2.txt";
+// const helper = require("./helper");
+const FILE_PATH_OUTPUT = "./email_password/email_password_output.txt";
+const FILE_PATH_INPUT = "./email_password/email_password_input.txt";
 
 module.exports = {
-  recordContentToFile(path) {
+  recordContentToFile(path, data) {
     try {
-      let recordingData = helper.collectEmailPassword(
-        uniqueEmail,
-        uniquePasswd
-      );
-      fs.writeFileSync(path, recordingData, "utf8");
+      fs.writeFileSync(path, data, "utf8");
     } catch (err) {
       console.error(err);
     }
   },
 
-  recordEmailPasswordToFile() {
-    this.recordContentToFile(FILE_PATH);
+  recordEmailPasswordToFile(email, password) {
+    let recordingData = email + " : " + password;
+    this.recordContentToFile(FILE_PATH_OUTPUT, recordingData);
   },
 
   getContentFromFile(path) {
@@ -33,12 +30,13 @@ module.exports = {
     let rowsArray = string.split(/\r\n/);
     let arrayOfObjects = [];
     for (const row of rowsArray) {
-        arrayOfObjects.push({
-            email: row.split(/\s/)[0], password: row.split(/\s/)[1]
-        });
+      arrayOfObjects.push({
+        email: row.split(/\s/)[0],
+        password: row.split(/\s/)[1],
+      });
     }
     return arrayOfObjects;
-},
+  },
 
   // getArrayOfObjects(string) {
   //   let rowsArray = string.split(" : ");
@@ -50,12 +48,8 @@ module.exports = {
   //   return arrayOfObjects;
   // },
 
-
-
   getData() {
-    let string = this.getContentFromFile(FILE_PATH2);
+    let string = this.getContentFromFile(FILE_PATH_INPUT);
     return this.getArrayOfObjects(string);
   },
-
-
 };

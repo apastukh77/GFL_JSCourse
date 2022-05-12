@@ -13,12 +13,8 @@ module.exports = {
     I.amOnPage(this.authenticationLink);
   },
 
-  waitForPageLoad() {
-    I.waitForVisible(this.createAccountEmailInput);
-  },
-
   fillCreateAccountEmailInput(email) {
-    this.waitForPageLoad();
+    I.waitForVisible(this.createAccountEmailInput);
     I.fillField(this.createAccountEmailInput, email);
   },
 
@@ -26,17 +22,13 @@ module.exports = {
     I.click(this.createAccountBtn);
   },
 
-  waitForPageLoad2() {
-    I.waitForVisible(this.alreadyRegisteredEmailInput);
-    I.waitForVisible(this.alreadyRegisteredPasswdInput);
-  },
-
   fillAlreadyRegisteredEmailInput(email) {
-    this.waitForPageLoad2();
+    I.waitForVisible(this.alreadyRegisteredEmailInput);
     I.fillField(this.alreadyRegisteredEmailInput, email);
   },
 
   fillAlreadyRegisteredPasswdInput(password) {
+    I.waitForVisible(this.alreadyRegisteredPasswdInput);
     I.fillField(this.alreadyRegisteredPasswdInput, password);
   },
 

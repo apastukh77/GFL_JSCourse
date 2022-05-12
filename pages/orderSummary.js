@@ -12,18 +12,11 @@ module.exports = {
 
   openOrderSummaryLink() {
     I.amOnPage(this.shoppingCartSummaryLink);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.confirmMyOrderBtn);
+    I.waitForVisible(this.visiblePage);
   },
 
   clickConfirmMyOrderBtn() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.confirmMyOrderBtn);
     I.click(this.confirmMyOrderBtn);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
   },
 };

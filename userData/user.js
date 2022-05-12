@@ -58,15 +58,15 @@ module.exports = {
         return this.mobilePhone;
       },
 
-      getCreateUniqueEmail: function () {
+      createUniqueEmail: function () {
         uniqueEmail = Date.now() + "@test.org.ca";
         return uniqueEmail;
       },
 
-      getCreateUniquePasswd: function () {
-        var generatedPasswd = [],
+      createUniquePasswd: function () {
+        let generatedPasswd = [],
           random = 0;
-        var passwdArray = [
+        let passwdArray = [
           "0",
           "1",
           "2",
@@ -161,7 +161,6 @@ module.exports = {
         if (num % 2 == 0) {
           let mr_mrs = 1;
         } else mr_mrs = 2;
-
         return mr_mrs;
       },
 

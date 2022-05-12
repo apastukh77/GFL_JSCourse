@@ -12,18 +12,11 @@ module.exports = {
 
   openCatalogLink() {
     I.amOnPage(this.openCatalogLink);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.quickViewImg);
+    I.waitForVisible(this.visiblePage);
   },
 
   clickQuickViewImg() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.quickViewImg);
     I.forceClick(this.quickViewImg);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
   },
 };

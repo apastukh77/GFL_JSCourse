@@ -1,5 +1,4 @@
 const file_handler = require("./helper/file_handler");
-const user = require("./userDate/user");
 
 Feature("Store");
 
@@ -21,10 +20,10 @@ Scenario(
   }) => {
     let customer = user.getUser();
     homePage.clickSignIn();
-    let email = customer.getCreateUniqueEmail();
-    let password = customer.getCreateUniquePasswd();
+    let email = customer.createUniqueEmail();
+    let password = customer.createUniquePasswd();
     console.log("email: " + email + " " + "password: " + password);
-    await file_handler.recordEmailPasswordToFile();
+    await file_handler.recordEmailPasswordToFile(email, password);
     authenticationPage.fillCreateAccountEmailInput(email);
     authenticationPage.clickCreateAccountBtn();
     createAccountPage.fillNewUserForm(customer, password);
@@ -54,40 +53,28 @@ Data(file_handler.getData())
       authenticationPage.fillAlreadyRegisteredEmailInput(current.email);
       authenticationPage.fillAlreadyRegisteredPasswdInput(current.password);
       authenticationPage.clickSubmitLoginBtn();
-      myAccountPage.checkPageIsVisible();
       myAccountPage.clickT_ShirtsBtn();
-      openCatalogPage.checkPageIsVisible();
       openCatalogPage.clickQuickViewImg();
-      productPage.checkPageIsVisible();
       productPage.clickAddToCartBtn();
-      productPage.getProductPrice();
       const priceOnProductPage = 
         await productPage.getProductPrice();
       console.log(priceOnProductPage);
       productPage.clickProceedToCheckoutBtn();
-      shoppingCartSummaryPage.checkPageIsVisible();
-      shoppingCartSummaryPage.getPriceOnShoppingCartPage();
       const priceOnShoppingCartPage =
         await shoppingCartSummaryPage.getPriceOnShoppingCartPage();
       console.log(priceOnProductPage);
       I.assertEqual(priceOnProductPage, priceOnShoppingCartPage);
       shoppingCartSummaryPage.clickProceedToCheckoutBtn();
-      step1Page.checkPageIsVisible();
       step1Page.clickProceedToCheckoutBtn();
-      shippingPage.checkPageIsVisible();
       shippingPage.checkAgreeCheckBox();
       shippingPage.clickProceedToCheckoutBtn();
-      paymentMethodPage.checkPageIsVisible();
       paymentMethodPage.clickPayByBankWireBtn();
-      orderSummaryPage.checkPageIsVisible();
       orderSummaryPage.clickConfirmMyOrderBtn();
-      
     }
   )
   .tag("@purchase");
 
 After(({ I, myAccountPage }) => {
-  myAccountPage.goOnMyAccountPage();
   myAccountPage.clickLogoutBtn();
   console.log("After has done!");
 });

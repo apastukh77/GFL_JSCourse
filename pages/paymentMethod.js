@@ -12,18 +12,11 @@ module.exports = {
 
   openPaymentMethodLink() {
     I.amOnPage(this.paymentMethodLink);
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.payByBankWireBtn);
+    I.waitForVisible(this.visiblePage);
   },
 
   clickPayByBankWireBtn() {
-    this.waitForPageLoad();
+    I.waitForVisible(this.payByBankWireBtn);
     I.click(this.payByBankWireBtn);
-  },
-
-  checkPageIsVisible() {
-    I.waitForVisible(this.visiblePage);
   },
 };

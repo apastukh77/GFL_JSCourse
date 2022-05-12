@@ -40,7 +40,7 @@ module.exports = {
       case 2:
         I.click(this.mrsPersonalInfoInput);
         break;
-    }
+    };
     I.fillField(this.firstNamePersonalInfoInput, customer.firstName);
     I.fillField(this.lastNamePersonalInfoInput, customer.lastName);
     I.fillField(this.passwdPersonalInfoInput, password);
@@ -52,7 +52,7 @@ module.exports = {
       );
     } catch (e) {
       console.log("Error in select Day option");
-    }
+    };
     I.click(this.daysDOBPersonalInfoSelect);
     I.click(this.monthsDOBPersonalInfoSelect);
     try {
@@ -62,10 +62,13 @@ module.exports = {
       );
     } catch (e) {
       console.log("Error in select Month option");
-    }
+    };
     I.click(this.monthsDOBPersonalInfoSelect);
     I.click(this.yearsDOBPersonalInfoSelect);
-    I.selectOption(this.yearsDOBPersonalInfoSelect, customer.getRandomYearDOB());
+    I.selectOption(
+      this.yearsDOBPersonalInfoSelect,
+      customer.getRandomYearDOB()
+    );
     I.click(this.yearsDOBPersonalInfoSelect);
     I.fillField(this.companyInput, customer.company);
     I.fillField(this.address1AddrInput, customer.address1);
@@ -78,10 +81,6 @@ module.exports = {
     I.fillField(this.homePhoneAddrInput, customer.homePhone);
     I.fillField(this.mobilePhoneAddrInput, customer.mobilePhone);
     I.fillField(this.addressAliasAddrInput, customer.alias());
-  },
-
-  waitForPageLoad() {
-    I.waitForVisible(this.firstNamePersonalInfoInput);
   },
 
   clickSubmitAccountBtn() {
